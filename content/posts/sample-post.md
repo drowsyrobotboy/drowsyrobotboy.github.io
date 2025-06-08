@@ -24,7 +24,7 @@ func main() {
 
 ## Image Example
 
-![[attachments/logo.png]]
+![](attachments/logo.png)
 ## Links
 
 [Visit Hugo Documentation](https://gohugo.io/documentation/)
