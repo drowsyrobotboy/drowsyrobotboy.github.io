@@ -5,6 +5,7 @@
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
-  {{ .Content }}
+  {{ $fixed := replaceRE "src=\"attachments/" "src=\"/posts/attachments/" .Content }}
+  {{ $fixed | safeHTML }}
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 {{ end }}
