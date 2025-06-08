@@ -24,7 +24,7 @@ func main() {
 
 ## Image Example
 
-![Sample Image](/images/logo.png)
+![[logo.png]]
 
 ## Links
 
