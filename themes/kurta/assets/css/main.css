@@ -1,0 +1,75 @@
+body {
+  color: #222;
+  background-color: #fff;
+  font-family: "Courier Prime", monospace;
+  line-height: 1.5;
+  margin: auto;
+  padding: 1rem;
+  max-width: 768px;
+}
+img{
+  max-width: 768px;
+}
+
+header{
+  margin: 1rem auto 2rem;
+}
+
+header img.rb-logo{
+  max-height: 64px;
+}
+
+footer {
+  border-top: .05rem dashed #222;
+  margin-top: 1rem;
+  text-align: center;
+}
+footer img{
+  height: 2rem;
+}
+
+a {
+  color: #333;
+  text-decoration: underline;
+}
+
+h1.rb-home-posts-title{
+  border-top: .05rem dashed #222;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.rb-home-posts {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+}
+
+.rb-home-posts .rb-post-date{
+  align-self: center;
+  justify-self: end;
+
+}
+
+.rb-home-posts .rb-post-title{
+  align-self: center;
+  font-size: 1rem;
+  margin:.5rem;
+}
+
+.rb-home-posts .rb-post-title a{
+  text-decoration: underline;
+}
+
+@media (max-width: 480px){
+  .rb-home-posts {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+  .rb-home-posts .rb-post-date{
+    justify-self: start;
+  }
+  .rb-home-posts .rb-post-title{
+    margin-bottom: 1rem;;
+  }
+}

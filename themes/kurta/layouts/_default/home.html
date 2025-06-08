@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{ .Content }}
+  <h1 class="rb-home-posts-title">My Latest Posts</h1>
+  <div class="rb-home-posts">
+  {{ range site.RegularPages }}
+    <div class="rb-post-date">
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+      {{ $dateHuman := .Date | time.Format ":date_long" }}
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    </div>
+    <div class="rb-post-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
+  {{ end }}
+  </div>
+{{ end }}
