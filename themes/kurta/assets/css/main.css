@@ -61,6 +61,12 @@ h1.rb-home-posts-title{
   text-decoration: underline;
 }
 
+@media (max-width: 748px){
+  img {
+    max-width: calc(100vw - 2rem);
+  }
+}
+
 @media (max-width: 480px){
   .rb-home-posts {
     grid-template-columns: 1fr;
