@@ -1,14 +1,23 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <h1 class="rb-home-posts-title">{{ .Title }}</h1>
   {{ .Content }}
-  <div class="rb-home-posts">
-  {{ range .Pages }}
-    <div class="rb-post-date">
-      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-      {{ $dateHuman := .Date | time.Format ":date_long" }}
-      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-    </div>
-    <div class="rb-post-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
+    {{ $pages := .Pages.ByDate.Reverse }}
+    {{ $lastYear := "" }}
+    {{ range $pages }}
+      {{ $year := .Date.Format "2006" }}
+      {{ if ne $year $lastYear }}
+        <h2 class="rb-home-posts-year">{{ $year }}</h2>
+        {{ $lastYear = $year }}
+      {{ end }}
+      <div class="rb-home-posts">
+        <div class="rb-post-date">
+          {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+          {{ $dateHuman := .Date | time.Format "Jan 02" }}
+          <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        </div>
+        <div class="rb-post-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
+        <div class="rb-post-categories">
+        </div>
+      </div>
   {{ end }}
-  </div>
 {{ end }}

@@ -1,14 +1,28 @@
 {{ define "main" }}
   {{ .Content }}
-  <h1 class="rb-home-posts-title">My Latest Posts</h1>
-  <div class="rb-home-posts">
-  {{ range site.RegularPages }}
-    <div class="rb-post-date">
-      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-      {{ $dateHuman := .Date | time.Format ":date_long" }}
-      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-    </div>
-    <div class="rb-post-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
+  <h1 class="rb-home-posts-title">Latest Posts</h1>
+    {{ $pages := site.RegularPages.ByDate.Reverse }}
+    {{ $lastYear := "" }}
+    {{ range $pages }}
+      {{ $year := .Date.Format "2006" }}
+      {{ if ne $year $lastYear }}
+        <h2 class="rb-home-posts-year">{{ $year }}</h2>
+        {{ $lastYear = $year }}
+      {{ end }}
+      <div class="rb-home-posts">
+        <div class="rb-post-date">
+          {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+          {{ $dateHuman := .Date | time.Format "Jan 02" }}
+          <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        </div>
+        <div class="rb-post-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
+        {{ with .Params.categories }}
+        <div class="rb-post-categories">
+          {{ range $index, $cat := . }}
+            {{ if $index }}, {{ end }}<a href="{{ "categories/" | relLangURL }}{{ $cat | urlize }}">/{{ $cat }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
   {{ end }}
-  </div>
 {{ end }}

@@ -5,7 +5,7 @@ draft: false
 tags:
   - self-hosted
 categories:
-  - self hosted
+  - self-hosted
 ---
 ### Prerequisites
 Install latest versions (devel) of LibCurl and LibXML2

@@ -39,26 +39,44 @@ h1.rb-home-posts-title{
   padding-top: 1rem;
 }
 
+h2.rb-home-posts-year{
+  border-bottom: .05rem dashed #222;
+}
+
 .rb-home-posts {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 5rem auto 10rem;
   gap: 1rem;
 }
 
 .rb-home-posts .rb-post-date{
-  align-self: center;
-  justify-self: end;
-
+  align-self:auto;
 }
 
 .rb-home-posts .rb-post-title{
-  align-self: center;
+  align-self:auto;
+  justify-self:start;
   font-size: 1rem;
-  margin:.5rem;
+  margin:0 0 1rem 0;
 }
 
 .rb-home-posts .rb-post-title a{
   text-decoration: underline;
+}
+
+.rb-home-posts .rb-post-categories{
+    align-self:auto;
+    justify-self: end;
+}
+
+.rb-home-posts .rb-post-categories a{
+  text-decoration: none;
+  font-style: italic;
+  color: #ccc;
+}
+
+.rb-home-posts .rb-post-categories a:hover{
+  color: #666;
 }
 
 @media (max-width: 748px){
@@ -72,10 +90,11 @@ h1.rb-home-posts-title{
     grid-template-columns: 1fr;
     gap: .5rem;
   }
-  .rb-home-posts .rb-post-date{
-    justify-self: start;
-  }
   .rb-home-posts .rb-post-title{
-    margin-bottom: 1rem;;
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+  }
+  .rb-home-posts .rb-post-categories{
+    display: none;
   }
 }
