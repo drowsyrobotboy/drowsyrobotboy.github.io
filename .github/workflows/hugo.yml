@@ -80,7 +80,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: hugo-site
+          name: github-pages
           path: ./public
 
   # Deployment job
@@ -97,7 +97,7 @@ jobs:
       - name: Download artifact before GCP Deploy
         uses: actions/download-artifact@v4
         with:
-          name: hugo-site
+          name: github-pages
           path: public
       - name: Deploy to GCP VM
         env:
