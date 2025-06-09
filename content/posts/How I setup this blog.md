@@ -1,6 +1,6 @@
 ---
 title: How I setup this blog
-date: 2025-06-09T23:30:00+05:30
+date: 2025-06-09T13:30:00+05:30
 draft: false
 tags:
   - self-hosted
