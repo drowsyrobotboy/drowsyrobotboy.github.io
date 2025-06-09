@@ -110,3 +110,4 @@ jobs:
           chmod 400 ~/.ssh/id_rsa
           ssh-keyscan $HOST >> ~/.ssh/known_hosts
           scp -r public/ $USERNAME@$HOST:~/drowsyrobotboy/
+          ssh $USERNAME@$HOST "cd ~/drowsyrobotboy/ && tar -xf artifact.tar && rm -f artifact.tar && echo 'Deployment complete'"
