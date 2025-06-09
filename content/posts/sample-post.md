@@ -1,9 +1,13 @@
 ---
-title: "Sample Hugo Post"
+title: Sample Hugo Post
 date: 2025-06-07T12:00:00+05:30
-draft: false
-tags: ["sample", "hugo", "markdown"]
-categories: ["demo"]
+draft: true
+tags:
+  - sample
+  - hugo
+  - markdown
+categories:
+  - demo
 ---
 
 This is a sample post created for your Hugo site. You can edit or delete it as you like.
