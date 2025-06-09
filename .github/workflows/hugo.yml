@@ -93,3 +93,14 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Deploy to GCP VM
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.VM_SSH_PRIVATE_KEY }}
+          HOST: ${{ secrets.VM_HOST }}
+          USERNAME: ${{ secrets.VM_USERNAME }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+          ssh-keyscan $HOST >> ~/.ssh/known_hosts
+          scp -r public/ $USERNAME@$HOST:~/drowsyrobotboy/
