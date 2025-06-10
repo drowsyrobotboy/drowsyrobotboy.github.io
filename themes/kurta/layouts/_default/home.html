@@ -16,7 +16,7 @@
           <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
         </div>
         <div class="rb-post-title">
-          <a href="{{ .RelPermalink }}">{{ path.Base .RelPermalink }}</a>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a> 
           <div class="rb-post-category">
             {{ with .Params.categories }}
               {{ $firstCategory := index . 0 }}
