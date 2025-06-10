@@ -16,22 +16,15 @@
           <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
         </div>
         <div class="rb-post-title">
+          <a href="{{ .RelPermalink }}">{{ path.Base .RelPermalink }}</a>
           <div class="rb-post-category">
             {{ with .Params.categories }}
               {{ $firstCategory := index . 0 }}
-              <a href="{{ "categories/" | relLangURL }}{{ $firstCategory | urlize }}">&rarr;&nbsp;{{ $firstCategory }}</a>
+              <a href="{{ "categories/" | relLangURL }}{{ $firstCategory | urlize }}">{{ $firstCategory }}</a>
             {{- /* using {{- end -}} instead of {{ end }} trims the whitespace */ -}}
             {{- end -}}
           </div>
-          <a href="{{ .RelPermalink }}">{{ path.Base .RelPermalink }}</a>&nbsp;
-          {{ with .Params.tags }}
-          <div class="rb-post-tags">
-            {{ range $index, $cat := . }}
-              {{ if $index }} {{ end }}<a href="{{ "tags/" | relLangURL }}{{ $cat | urlize }}">{{ $cat }}</a>
-            {{ end }}
-          </div>
-          {{ end }}
         </div>
-      </div>
+      </div> 
   {{ end }}
 {{ end }}

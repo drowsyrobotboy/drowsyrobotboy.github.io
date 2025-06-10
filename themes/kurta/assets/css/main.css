@@ -3,7 +3,7 @@ body {
   background-color: #fff;
   font-family: "Courier Prime", monospace;
   line-height: 1.5;
-  margin: auto;
+  margin: auto !important;
   padding: 1rem;
   max-width: 768px;
 }
@@ -34,17 +34,18 @@ a {
 }
 
 h1.rb-home-posts-title{
-  border-top: .05rem dashed #222;
-  margin-top: 2rem;
-  padding-top: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h2.rb-home-posts-year{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .rb-home-posts {
   display: grid;
-  grid-template-columns: 5rem auto;
+  grid-template-columns: 4rem auto;
   gap: 1rem;
 }
 
@@ -52,48 +53,32 @@ h2.rb-home-posts-year{
   align-self:auto;
 }
 
-.rb-home-posts .rb-post-date::before{
-  content: "\A";
-  white-space: pre;
-}
-
 .rb-home-posts .rb-post-title{
   align-self:auto;
   justify-self:start;
-  margin:0 0 1rem 0;
+  margin:0 0 0.5rem 0;
 }
 
 .rb-home-posts .rb-post-title a{
-  text-decoration: none;
+  text-decoration: underline;
 }
 
-.rb-home-posts .rb-post-tags{
-  display: inline-block;
-  align-self:auto;
-  justify-self: start;
-}
-
-.rb-home-posts .rb-post-tags a{
-  text-decoration: none;
-  font-size: .8rem;
-  color: #ccc;
-  border: .1rem solid #eee;
-  padding: .2rem .5rem;
-  border-radius: .5rem;
-}
-
-.rb-home-posts .rb-post-tags a:hover{
-  color: #666;
-  border: .1rem solid #666;
+.rb-home-posts .rb-post-category{
+  display: inline;
 }
 
 .rb-home-posts .rb-post-category a{
+  text-decoration: none;
+  text-transform: uppercase;
   font-size: .8rem;
-  color: #ccc;
+  color: #666;
+  padding: .2rem .5rem;
+  border: .1rem solid #666;
+  border-radius: .5rem;
 }
 
 .rb-home-posts .rb-post-category a:hover{
-  color: #666;
+  color: #333;
 }
 
 h1.rb-single-title{
@@ -103,7 +88,50 @@ h1.rb-single-title{
 .rb-single-subtitle{
   font-size: .9rem;
   font-style: italic;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+.rb-single-subtitle a{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rb-single-tags{
+  font-size: .9rem;
+}
+
+.rb-single-tags a{
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: .8rem;
+  color: #666;
+  padding: .2rem .5rem;
+  border: .1rem solid #666;
+  border-radius: .5rem;
+}
+
+.rb-single-tags a:hover{
+  color: #333;
+}
+
+.rb-header-menu{
+  border-top: .05rem dashed #222;
+  border-bottom: .05rem dashed #222;
+  margin-top: 1rem;;
+}
+
+.rb-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.rb-nav a {
+  text-decoration: none;
+  padding: 0.5em .25rem;
+  display: block;
 }
 
 @media (max-width: 748px){
@@ -120,12 +148,5 @@ h1.rb-single-title{
   .rb-home-posts .rb-post-title{
     font-size: 1.2rem;
     margin: 0 0 2rem 0;
-  }
-  .rb-home-posts .rb-post-date::before{
-    content: "";
-    white-space:unset;
-  }
-  .rb-home-posts .rb-post-category {
-    display: none;
   }
 }

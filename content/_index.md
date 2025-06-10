@@ -5,6 +5,4 @@ draft: false
 tags: []
 categories:
 ---
-They call me Drowsy[RobotBoy](https://www.youtube.com/watch?v=Wbt59pmT26E&ref=drowsyrobotboy.com), or I _~~make them~~_ implore them to. 
-
-I write about 💻 tech, 🎨 design and 🎵 music.
+I'm the guy who pesters people to call him Drowsy[RobotBoy](https://www.youtube.com/watch?v=Wbt59pmT26E&ref=drowsyrobotboy.com)!

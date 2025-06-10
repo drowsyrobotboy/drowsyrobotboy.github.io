@@ -13,5 +13,14 @@
 
   {{ $fixed := replaceRE "src=\"attachments/" "src=\"/posts/attachments/" .Content }}
   {{ $fixed | safeHTML }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+  {{- with .GetTerms "tags"}}
+    {{- $label := (index . 0).Parent.LinkTitle }}
+    <div class="rb-single-tags">
+        {{- range . }}
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end }}
+    </div>
+  {{- end }}
+
 {{ end }}

@@ -1,21 +1,33 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://drowsyrobotboy.com'
 languageCode = 'en-US'
-title = 'My New Hugo Site'
+title = 'DrowsyRobotBoy'
 
 [[menus.main]]
 name = 'Home'
 pageRef = '/'
-weight = 10
+weight = 1
 
 [[menus.main]]
-name = 'Posts'
-pageRef = '/posts'
+name = 'About'
+url = 'https://maruthisharma.com'
+weight = 10
+[menus.main.params]
+  target = "_blank"
+
+[[menus.main]]
+name = 'Tech'
+pageRef = '/categories/tech'
 weight = 20
 
 [[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
+name = 'Design'
+pageRef = '/categories/design'
 weight = 30
+
+[[menus.main]]
+name = 'Music'
+pageRef = '/categories/music'
+weight = 40
 
 [module]
   [module.hugoVersion]
