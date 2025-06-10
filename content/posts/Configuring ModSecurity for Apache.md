@@ -5,8 +5,9 @@ draft: false
 tags:
   - apache
   - security
-categories:
   - self-hosted
+categories:
+  - tech
 ---
 ### Prerequisites
 Install latest versions (devel) of LibCurl and LibXML2

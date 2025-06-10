@@ -1,9 +1,15 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-
+  <h1 class="rb-single-title">{{ .Title }}</h1>
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  {{ $dateHuman := .Date | time.Format "January 02 2006 at 15:04" }}
+  <div class="rb-single-subtitle">
+    Posted on <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>, under 
+   {{ with .Params.categories }}
+      {{ $firstCategory := index . 0 }}
+      <a href="{{ "categories/" | relLangURL }}{{ $firstCategory | urlize }}">{{ $firstCategory }}</a>
+    {{- /* using {{- end -}} instead of {{ end }} trims the whitespace */ -}}
+    {{- end -}} 
+  </div>
 
   {{ $fixed := replaceRE "src=\"attachments/" "src=\"/posts/attachments/" .Content }}
   {{ $fixed | safeHTML }}

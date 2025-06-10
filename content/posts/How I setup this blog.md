@@ -5,8 +5,9 @@ draft: false
 tags:
   - blog
   - hugo
-categories:
   - self-hosted
+categories:
+  - tech
 ---
 Ever since [Ghost](https://github.com/TryGhost/Ghost) was released in 2013, I always wanted to self-host and try it. It wasn't blogger or wordpress. It looked cleaner. It was more lightweight. But I never had my own server or the time (honestly) to host my own "ghost" blog.
 

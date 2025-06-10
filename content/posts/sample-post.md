@@ -7,7 +7,7 @@ tags:
   - hugo
   - markdown
 categories:
-  - demo
+  - tech
 ---
 
 This is a sample post created for your Hugo site. You can edit or delete it as you like.

@@ -6,8 +6,9 @@ tags:
   - ftp
   - server
   - linux
-categories:
   - self-hosted
+categories:
+  - tech
 ---
 There is always going to be a need to setup a good old FTP user account that your clients can then use to “optimize” their sites or to feel liberated enough to “take care of their sites on their own”. It is thus very important to safely setup an FTP server and create FTP accounts with just the right amount of permissions to keep the clients happy!!
 

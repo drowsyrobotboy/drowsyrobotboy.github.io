@@ -15,8 +15,22 @@
           {{ $dateHuman := .Date | time.Format "Jan 02" }}
           <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
         </div>
-        <div class="rb-post-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
-        <div class="rb-post-categories">
+        <div class="rb-post-title">
+          <div class="rb-post-category">
+            {{ with .Params.categories }}
+              {{ $firstCategory := index . 0 }}
+              <a href="{{ "categories/" | relLangURL }}{{ $firstCategory | urlize }}">&rarr;&nbsp;{{ $firstCategory }}</a>
+            {{- /* using {{- end -}} instead of {{ end }} trims the whitespace */ -}}
+            {{- end -}}
+          </div>
+          <a href="{{ .RelPermalink }}">{{ path.Base .RelPermalink }}</a>
+          {{ with .Params.tags }}
+          <div class="rb-post-tags">
+            {{ range $index, $cat := . }}
+              {{ if $index }} {{ end }}<a href="{{ "tags/" | relLangURL }}{{ $cat | urlize }}">{{ $cat }}</a>
+            {{ end }}
+          </div>
+          {{ end }}
         </div>
       </div>
   {{ end }}

@@ -68,8 +68,9 @@ h2.rb-home-posts-year{
 }
 
 .rb-home-posts .rb-post-tags{
+  display: inline-block;
   align-self:auto;
-  justify-self: end;
+  justify-self: start;
 }
 
 .rb-home-posts .rb-post-tags a{
@@ -93,6 +94,16 @@ h2.rb-home-posts-year{
 
 .rb-home-posts .rb-post-category a:hover{
   color: #666;
+}
+
+h1.rb-single-title{
+  margin: 0;
+}
+
+.rb-single-subtitle{
+  font-size: .9rem;
+  font-style: italic;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 748px){

@@ -5,8 +5,9 @@ draft: false
 tags:
   - vscode
   - server
-categories:
   - troubleshooting
+categories:
+  - tech
 ---
 Open port 8080 on server/machine that is running code-server
 

@@ -5,8 +5,9 @@ draft: false
 tags:
   - vscode
   - server
-categories:
   - troubleshooting
+categories:
+  - tech
 ---
 While using VS Code’s [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension?ref=drowsyrobotboy.com), you may get the following error
 
