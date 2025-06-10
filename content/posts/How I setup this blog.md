@@ -3,7 +3,7 @@ title: How I setup this blog
 date: 2025-06-09T13:30:00+05:30
 draft: false
 tags:
-  - self-hosted
+  - blog
   - hugo
 categories:
   - self-hosted

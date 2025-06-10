@@ -44,7 +44,7 @@ h2.rb-home-posts-year{
 
 .rb-home-posts {
   display: grid;
-  grid-template-columns: 5rem auto 10rem;
+  grid-template-columns: 5rem auto;
   gap: 1rem;
 }
 
@@ -52,29 +52,46 @@ h2.rb-home-posts-year{
   align-self:auto;
 }
 
+.rb-home-posts .rb-post-date::before{
+  content: "\A";
+  white-space: pre;
+}
+
 .rb-home-posts .rb-post-title{
   align-self:auto;
   justify-self:start;
-  font-size: 1rem;
   margin:0 0 1rem 0;
 }
 
 .rb-home-posts .rb-post-title a{
-  text-decoration: underline;
-}
-
-.rb-home-posts .rb-post-categories{
-    align-self:auto;
-    justify-self: end;
-}
-
-.rb-home-posts .rb-post-categories a{
   text-decoration: none;
-  font-style: italic;
+}
+
+.rb-home-posts .rb-post-tags{
+  align-self:auto;
+  justify-self: end;
+}
+
+.rb-home-posts .rb-post-tags a{
+  text-decoration: none;
+  font-size: .8rem;
+  color: #ccc;
+  border: .1rem solid #eee;
+  padding: .2rem .5rem;
+  border-radius: .5rem;
+}
+
+.rb-home-posts .rb-post-tags a:hover{
+  color: #666;
+  border: .1rem solid #666;
+}
+
+.rb-home-posts .rb-post-category a{
+  font-size: .8rem;
   color: #ccc;
 }
 
-.rb-home-posts .rb-post-categories a:hover{
+.rb-home-posts .rb-post-category a:hover{
   color: #666;
 }
 
@@ -91,9 +108,13 @@ h2.rb-home-posts-year{
   }
   .rb-home-posts .rb-post-title{
     font-size: 1.2rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 2rem 0;
   }
-  .rb-home-posts .rb-post-categories{
+  .rb-home-posts .rb-post-date::before{
+    content: "";
+    white-space:unset;
+  }
+  .rb-home-posts .rb-post-category {
     display: none;
   }
 }

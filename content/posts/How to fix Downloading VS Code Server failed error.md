@@ -3,7 +3,8 @@ title: How to fix ‘Downloading VS Code Server failed’ error
 date: 2021-03-21T12:00:00+05:30
 draft: false
 tags:
-  - troubleshooting
+  - vscode
+  - server
 categories:
   - troubleshooting
 ---

@@ -3,7 +3,9 @@ title: Setting up FTP on a Linux machine
 date: 2021-03-21T13:00:00+05:30
 draft: false
 tags:
-  - self-hosted
+  - ftp
+  - server
+  - linux
 categories:
   - self-hosted
 ---

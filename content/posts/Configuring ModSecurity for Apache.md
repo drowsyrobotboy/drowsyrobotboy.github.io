@@ -3,7 +3,8 @@ title: Configuring ModSecurity for Apache
 date: 2021-03-09T12:00:00+05:30
 draft: false
 tags:
-  - self-hosted
+  - apache
+  - security
 categories:
   - self-hosted
 ---
