@@ -23,7 +23,7 @@
             {{- /* using {{- end -}} instead of {{ end }} trims the whitespace */ -}}
             {{- end -}}
           </div>
-          <a href="{{ .RelPermalink }}">{{ path.Base .RelPermalink }}</a>
+          <a href="{{ .RelPermalink }}">{{ path.Base .RelPermalink }}</a>&nbsp;
           {{ with .Params.tags }}
           <div class="rb-post-tags">
             {{ range $index, $cat := . }}
