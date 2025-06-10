@@ -61,6 +61,7 @@ h2.rb-home-posts-year{
 
 .rb-home-posts .rb-post-title a{
   text-decoration: underline;
+  margin-right: .2rem;
 }
 
 .rb-home-posts .rb-post-category{
