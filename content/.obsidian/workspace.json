@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/How I setup this blog.md",
+                "file": "about.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "How I setup this blog"
+              "title": "about"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/How I setup this blog.md",
+                "file": "about.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of How I setup this blog"
+              "title": "Outline of about"
             }
           }
         ],
@@ -168,17 +168,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8364e8af6cc11e0a",
+  "active": "922ee18f161b4bf4",
   "lastOpenFiles": [
+    "_index.md",
+    "about.md",
+    "posts/How I setup this blog.md",
     "posts/attachments/Screenshot 2025-06-10 at 11.06.27 PM.png",
     "posts/attachments/Screenshot 2025-06-10 at 11.05.01 PM.png",
     "posts/Setting up FTP on a Linux machine.md",
     "posts/sample-post.md",
     "posts/How to fix Downloading VS Code Server failed error.md",
-    "posts/How I setup this blog.md",
     "posts/Enabling Remote Access for Code-Server.md",
     "posts/Configuring ModSecurity for Apache.md",
-    "_index.md",
     "posts/_index.md",
     "posts/attachments/logo.png",
     "attachments/logo.png",
