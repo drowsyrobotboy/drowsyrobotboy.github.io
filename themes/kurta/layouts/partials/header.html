@@ -1,21 +1,13 @@
 <div class="rb-header">
-    <div class="rb-header-top">
-        <div class="rb-header-logo">
-              <a href="/">
-                <img src="/images/rb.svg">
-                </svg>
-            </a>
-        </div>
-        <div class="rb-header-title">
-            {{ site.Params.customHeader | safeHTML }}
-        </div>
+    <div class="rb-header-logo">
+        {{ site.Params.customHeader | safeHTML }} 
     </div>
     <div class="rb-header-menu">
         <div class="rb-header-menu-links">
             {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
         </div>
         <div class="rb-header-css-switch">
-            <a href="#" onclick="rotateCSS()">Aa</a>
+            <a href="#" onclick="rotateCSS()">&rarr;Aa</a>
         </div>
     </div>
 </div>

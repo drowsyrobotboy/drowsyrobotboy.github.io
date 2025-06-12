@@ -14,23 +14,8 @@ header{
   margin: 1rem auto 2rem;
 }
 
-.rb-header-top{
-  display: grid;
-  grid-template-columns: 5rem auto;
-}
-
-.rb-header-top a{
-  text-decoration: none; 
-  color: #222;
-}
 .rb-header-logo{
-  align-content: center;
-  justify-content:start;
-}
-
-.rb-header-title{
-  align-content: center;
-  justify-content:start;
+  text-align: left;
 }
 
 .rb-header-logo a img{
@@ -57,7 +42,7 @@ h1.rb-home-posts-title{
   margin-bottom: 0;
 }
 
-h2.rb-home-posts-year{
+h3.rb-home-posts-year{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -137,7 +122,6 @@ h1.rb-single-title{
   grid-template-columns: auto 2rem;
   border-top: .05rem dashed #222;
   border-bottom: .05rem dashed #222;
-  margin-top: 1rem;
 }
 
 .rb-header-menu-links{
@@ -152,16 +136,12 @@ h1.rb-single-title{
 }
 
 .rb-header-css-switch a{
-  color:#fff;
-  background-color: #999;
+  color:#999;
   text-decoration: none;
-  padding: .3rem;
-  border-radius: 50%;
 }
 
 .rb-header-css-switch a:hover{
-  color:#fff;
-  background-color: #333;
+  color:#333;
 }
 
 .rb-nav ul {
@@ -212,9 +192,6 @@ h1.rb-single-title{
   img {
     max-width: calc(100vw - 2rem);
   }
-  .rb-ms-header{
-    font-size: 1.8rem;
-  }
 }
 
 @media (max-width: 480px){
@@ -238,8 +215,5 @@ h1.rb-single-title{
   }
   .rb-copy{
     font-size: .85rem;
-  }
-  .rb-ms-header{
-    font-size: 1.5rem;
   }
 }

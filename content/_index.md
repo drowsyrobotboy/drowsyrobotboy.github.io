@@ -3,7 +3,9 @@ title: Home
 date: 2025-06-07T12:00:00+05:30
 draft: false
 ---
-I am a Security Architect from the beautiful city of Hyderabad, India. I work at a Cyber Security Firm called [SecurDI](https://securdi.com) 
+## Hi, I am Maruthi
+
+I am a Security Architect from Hyderabad, India. I work at a Cyber Security Firm called [SecurDI](https://securdi.com).
 
 I have more than a decade of experience in helping clients with Identity Security and DevOps. I am also an experienced Technical Manager invested in building and enabling teams to deliver their best on critical projects.
 

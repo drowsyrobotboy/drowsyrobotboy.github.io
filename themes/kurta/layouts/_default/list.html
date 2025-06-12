@@ -6,7 +6,7 @@
     {{ range $pages }}
       {{ $year := .Date.Format "2006" }}
       {{ if ne $year $lastYear }}
-        <h2 class="rb-home-posts-year">{{ $year }}</h2>
+        <h3 class="rb-home-posts-year">{{ $year }}</h3>
         {{ $lastYear = $year }}
       {{ end }}
       <div class="rb-home-posts">
