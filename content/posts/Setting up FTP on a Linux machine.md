@@ -24,19 +24,19 @@ You cannot assume that your server knows what to do when someone sends a request
 
 I’ve looked around and found that `vsftpd` is the best option out there, if you need an FTP server. So lets go ahead and install that
 
-```
+```shell
 $ sudo dnf install vsftpd
 ```
 
 Once it is installed, you need to change some configurations because … Linux….
 
-```
+```shell
 $ sudo vi /etc/vsftpd/vsftpd.conf
 ```
 
 Uncomment the following two lines to allow local users to login and use FTP
 
-```
+```plaintext
 local_enable=YES write_enable=YES
 ```
 
@@ -68,7 +68,10 @@ In the end, enable `passv` mode which reminds me what it actually means but th
 ![](https://media.giphy.com/media/10JLfyir1DEesM/giphy.gif)
 
 ```
-pasv_enable=YES pasv_min_port=10000 pasv_max_port=10010 seccomp_sandbox=NO
+pasv_enable=YES 
+pasv_min_port=10000 
+pasv_max_port=10010 
+seccomp_sandbox=NO
 ```
 
 Save the conf file (`esc + :wq` on vi) and the restart the vsftpd service
@@ -109,14 +112,14 @@ groupadd ftpusers
 
 Make sure you add your users to the `ftpusers` group when you create them. Replace `<awesome-user>` with the actual username wherever you see it.
 
-```
-$ sudo useradd <awesome_user> -g ftpusers -s /bin/false
-$ sudo passwd <awesome_user>
+```shell
+sudo useradd <awesome_user> -g ftpusers -s /bin/false
+sudo passwd <awesome_user>
 ```
 
 Make sure you create a dedicated `ftp` folder in their home because that is going to be their default ftp location based on our configuration (`local_root` param in vsftpd.conf file above)
 
-```
+```shell
 sudo mkdir /home/<awesome-user>/ftp
 sudo chown <awesome-user>:ftpusers /home/<awesome-user>/ftp
 sudo chmod 755 -R /home/<awesome-user>/ftp

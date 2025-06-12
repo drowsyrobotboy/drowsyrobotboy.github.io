@@ -12,6 +12,15 @@ theme = 'kurta'
 
 [params.meta]
     favicon = true
+
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
+
+[markup]
+  [markup.highlight]
+    noClasses = false     # Use CSS classes instead of inline styles
+    style = "monokailight"      # GitHub-style syntax highlighting
+    guessSyntax = true    # Detect language if nothing is specified
+  [markup.goldmark.renderer]
+    unsafe = true
