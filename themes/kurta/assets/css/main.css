@@ -19,6 +19,8 @@ header img.rb-logo{
 }
 
 footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-top: .05rem dashed #222;
   margin-top: 1rem;
   text-align: center;
@@ -133,6 +135,30 @@ h1.rb-single-title{
   display: block;
 }
 
+.rb-copy{
+  font-size: .9rem;
+  align-self: middle;
+  justify-self: start;
+}
+
+.rb-social-icons{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-self: middle;
+  justify-self: end;
+}
+
+/* Icons */
+.rb-social-icons a {
+  color: #999;
+  font-size: 1rem;
+}
+
+.rb-social-icons a:hover {
+  color:#333;
+}
+
 @media (max-width: 748px){
   img {
     max-width: calc(100vw - 2rem);
@@ -154,5 +180,8 @@ h1.rb-single-title{
   }
   .rb-home-posts .rb-post-category a{
     padding: .1rem .25rem;
+  }
+  footer{
+    grid-template-columns: auto 3rem;
   }
 }
