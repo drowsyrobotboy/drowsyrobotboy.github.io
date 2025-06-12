@@ -78,7 +78,7 @@ jobs:
             --minify \
             --config maruthisharma.toml \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --cacheDir "${{ runner.temp }}/hugo_cache"
+            --cacheDir "${{ runner.temp }}/hugo_cache" \
             --destination public-maruthi
       - name: Cache Save
         id: cache-save
