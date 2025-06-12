@@ -1,0 +1,19 @@
+body{
+    font-family: "helvetica-neue-lt-pro", sans-serif;
+    font-optical-sizing: auto;
+}
+.rb-header-css-switch a{
+    font-family: "Ovo", serif;
+}
+
+.rb-nav a {
+    text-transform: uppercase;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 1.4rem;
+}
+h2{
+    font-size: 1.3rem;
+}
