@@ -5,8 +5,28 @@
 {{ partialCached "head/js.html" . }}
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<!-- logic to rotate css -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Loading customCSS -->
- <link rel="stylesheet" href="/css/{{ site.Params.customCss}}">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Ovo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/crj3asf.css">
+<link id="rb-stylesheet" rel="stylesheet" href="/css/{{ site.Params.customCss}}">
+<script>
+    const link = document.getElementById('rb-stylesheet');
+
+    // Define your stylesheets in rotation order
+    const styles = ['/css/courier-prime.css', '/css/helvetica-neue.css', '/css/ovo.css'];
+
+    // Get saved stylesheet or fallback to first
+    let currentIndex = localStorage.getItem('themeIndex') || 0;
+    currentIndex = parseInt(currentIndex);
+    link.href = styles[currentIndex];
+
+    function rotateCSS() {
+      // Move to next index (wrap around at end)
+      currentIndex = (currentIndex + 1) % styles.length;
+      link.href = styles[currentIndex];
+      localStorage.setItem('themeIndex', currentIndex);
+    }
+</script>

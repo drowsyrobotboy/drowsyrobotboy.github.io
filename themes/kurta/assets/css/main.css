@@ -14,7 +14,26 @@ header{
   margin: 1rem auto 2rem;
 }
 
-header img.rb-logo{
+.rb-header-top{
+  display: grid;
+  grid-template-columns: 5rem auto;
+}
+
+.rb-header-top a{
+  text-decoration: none; 
+  color: #222;
+}
+.rb-header-logo{
+  align-content: center;
+  justify-content:start;
+}
+
+.rb-header-title{
+  align-content: center;
+  justify-content:start;
+}
+
+.rb-header-logo a img{
   max-height: 64px;
 }
 
@@ -114,9 +133,29 @@ h1.rb-single-title{
 }
 
 .rb-header-menu{
+  display: grid;
+  grid-template-columns: auto 2rem;
   border-top: .05rem dashed #222;
   border-bottom: .05rem dashed #222;
   margin-top: 1rem;;
+}
+
+.rb-header-menu-links{
+  align-content: center;
+  justify-content:first;
+}
+
+.rb-header-css-switch{
+  align-content: center;
+  justify-items: end;
+  text-align: end;
+}
+
+.rb-header-css-switch a{
+  text-decoration: none;
+  border: .1rem #222 solid;
+  padding: .2rem;
+  border-radius: 50%;
 }
 
 .rb-nav ul {
@@ -159,9 +198,16 @@ h1.rb-single-title{
   color:#333;
 }
 
+.rb-ms-header{
+  font-size: 2.2rem;
+}
+
 @media (max-width: 748px){
   img {
     max-width: calc(100vw - 2rem);
+  }
+  .rb-ms-header{
+    font-size: 1.8rem;
   }
 }
 
@@ -186,5 +232,8 @@ h1.rb-single-title{
   }
   .rb-copy{
     font-size: .85rem;
+  }
+  .rb-ms-header{
+    font-size: 1.5rem;
   }
 }
