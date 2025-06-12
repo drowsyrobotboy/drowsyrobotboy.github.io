@@ -137,7 +137,7 @@ h1.rb-single-title{
   grid-template-columns: auto 2rem;
   border-top: .05rem dashed #222;
   border-bottom: .05rem dashed #222;
-  margin-top: 1rem;;
+  margin-top: 1rem;
 }
 
 .rb-header-menu-links{
@@ -152,10 +152,16 @@ h1.rb-single-title{
 }
 
 .rb-header-css-switch a{
+  color:#fff;
+  background-color: #999;
   text-decoration: none;
-  border: .1rem #222 solid;
-  padding: .2rem;
+  padding: .3rem;
   border-radius: 50%;
+}
+
+.rb-header-css-switch a:hover{
+  color:#fff;
+  background-color: #333;
 }
 
 .rb-nav ul {

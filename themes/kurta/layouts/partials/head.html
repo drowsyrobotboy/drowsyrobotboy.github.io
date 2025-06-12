@@ -16,10 +16,10 @@
     const link = document.getElementById('rb-stylesheet');
 
     // Define your stylesheets in rotation order
-    const styles = ['/css/courier-prime.css', '/css/helvetica-neue.css', '/css/ovo.css'];
+    const styles = ['/css/ovo.css', '/css/courier-prime.css', '/css/helvetica-neue.css'];
 
-    // Get saved stylesheet or fallback to first
-    let currentIndex = localStorage.getItem('themeIndex') || 0;
+    // Get saved stylesheet or fallback to default for the site
+    let currentIndex = localStorage.getItem('themeIndex') || {{ site.Params.customCssIndex }};
     currentIndex = parseInt(currentIndex);
     link.href = styles[currentIndex];
 
