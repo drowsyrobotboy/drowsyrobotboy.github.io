@@ -1,7 +1,6 @@
-/* Importing Helvetica Neue from Adobe TypeKit*/
-@import url("https://use.typekit.net/crj3asf.css");
+@import url('https://fonts.googleapis.com/css2?family=Ovo&display=swap');
 body{
-    font-family: "helvetica-neue-lt-pro", sans-serif;
+    font-family: "Ovo", serif;
     font-optical-sizing: auto;
 }
 .rb-nav a {
@@ -9,7 +8,7 @@ body{
 }
 
 h1{
-    text-transform: uppercase;
+    font-family: "Ovo", serif;
     font-size: 1.4rem;
 }
 h2{
