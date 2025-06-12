@@ -1,7 +1,6 @@
 body {
   color: #222;
   background-color: #fff;
-  font-family: "Courier Prime", monospace;
   line-height: 1.5;
   margin: auto !important;
   padding: 1rem;
@@ -29,7 +28,6 @@ footer img{
 }
 
 a {
-  color: #333;
   text-decoration: underline;
 }
 
@@ -60,7 +58,7 @@ h2.rb-home-posts-year{
 }
 
 .rb-home-posts .rb-post-title a{
-  text-decoration: underline;
+  text-decoration: none;
   margin-right: .4rem;
 }
 
@@ -129,6 +127,7 @@ h1.rb-single-title{
 }
 
 .rb-nav a {
+  color: #222;
   text-decoration: none;
   padding: 0.5em .25rem;
   display: block;

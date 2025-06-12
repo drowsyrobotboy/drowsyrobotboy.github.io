@@ -63,13 +63,23 @@ jobs:
             hugo-
       - name: Configure Git
         run: git config core.quotepath false
-      - name: Build with Hugo
+      - name: Build with Hugo (drowsyrobotboy)
         run: |
           hugo \
             --gc \
             --minify \
+            --config drowsyrobotboy.toml \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
+      - name: Build with Hugo (maruthisharma)
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --config maruthisharma.toml \
+            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --cacheDir "${{ runner.temp }}/hugo_cache"
+            --destination public-maruthi
       - name: Cache Save
         id: cache-save
         uses: actions/cache/save@v4
@@ -77,12 +87,16 @@ jobs:
           path: |
             ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
-      - name: Upload artifact
+      - name: Upload artifact (drowsyrobotboy)
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ./public
-
+      - name: Upload artifact (maruthisharma)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: maruthi
+          path: ./public-maruthi
   # Deployment job
   deploy:
     environment:
@@ -94,11 +108,16 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Download artifact before GCP Deploy
+      - name: Download artifact before GCP Deploy (drowsyrobotboy)
         uses: actions/download-artifact@v4
         with:
           name: github-pages
           path: public
+      - name: Download artifact before GCP Deploy (maruthisharma)
+        uses: actions/download-artifact@v4
+        with:
+          name: maruthi
+          path: public-maruthi
       - name: Deploy to GCP VM
         env:
           SSH_PRIVATE_KEY: ${{ secrets.VM_SSH_PRIVATE_KEY }}
@@ -111,3 +130,5 @@ jobs:
           ssh-keyscan $HOST >> ~/.ssh/known_hosts
           scp -r public/ $USERNAME@$HOST:~/drowsyrobotboy/
           ssh $USERNAME@$HOST "cd ~/drowsyrobotboy/public/ && tar -xf artifact.tar && rm -f artifact.tar && echo 'Deployment complete'"
+          scp -r public-maruthi/ $USERNAME@$HOST:~/maruthisharma/
+          ssh $USERNAME@$HOST "cd ~/maruthisharma/public-maruthi/ && tar -xf artifact.tar && rm -f artifact.tar && echo 'Deployment complete'"

@@ -1,0 +1,17 @@
+/* Importing Helvetica Neue from Adobe TypeKit*/
+@import url("https://use.typekit.net/crj3asf.css");
+body{
+    font-family: "helvetica-neue-lt-pro", sans-serif;
+    font-optical-sizing: auto;
+}
+.rb-nav a {
+    text-transform: uppercase;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 1.4rem;
+}
+h2{
+    font-size: 1.3rem;;
+}

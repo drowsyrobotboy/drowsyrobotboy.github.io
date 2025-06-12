@@ -1,0 +1,16 @@
+baseURL = 'https://drowsyrobotboy.com'
+languageCode = 'en-us'
+title = 'drowsyrobotboy'
+theme = 'kurta'
+
+[params]
+    customHeader = "<a href=\"/\"><img src=\"/images/dr-logo.png\" class=\"rb-logo\"></a>"
+    customCss = "drowsy.css"
+    customIntro = "<h1>They call me Drowsy<a href=\"https://www.youtube.com/watch?v=Wbt59pmT26E&amp;ref=drowsyrobotboy.com\">RobotBoy</a> or I <del>make them</del> implore them to.</h1>"
+    customContact = "You can reach out to me at <a href=\"mailto:maruthisharma@live.in\">maruthisharma@live.in</a>"
+
+[params.meta]
+    favicon = true
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

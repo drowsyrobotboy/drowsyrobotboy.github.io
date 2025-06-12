@@ -1,7 +1,7 @@
 ---
 title: Sample Hugo Post
 date: 2025-06-07T12:00:00+05:30
-draft: true
+draft: false
 tags:
   - sample
   - hugo
@@ -10,7 +10,13 @@ categories:
   - tech
 ---
 
-This is a sample post created for your Hugo site. You can edit or delete it as you like.
+This is a sample post created for your Hugo site. You can edit or delete it as you like
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+Body
 
 ## Features
 
