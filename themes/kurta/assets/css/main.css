@@ -184,4 +184,7 @@ h1.rb-single-title{
   footer{
     grid-template-columns: auto 3rem;
   }
+  .rb-copy{
+    font-size: .85rem;
+  }
 }
