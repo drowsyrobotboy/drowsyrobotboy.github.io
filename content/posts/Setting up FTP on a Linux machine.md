@@ -24,25 +24,26 @@ You cannot assume that your server knows what to do when someone sends a request
 
 I’ve looked around and found that `vsftpd` is the best option out there, if you need an FTP server. So lets go ahead and install that
 
-```shell
-$ sudo dnf install vsftpd
+```bash
+sudo dnf install vsftpd
 ```
 
 Once it is installed, you need to change some configurations because … Linux….
 
-```shell
-$ sudo vi /etc/vsftpd/vsftpd.conf
+```bash
+sudo vi /etc/vsftpd/vsftpd.conf
 ```
 
 Uncomment the following two lines to allow local users to login and use FTP
 
-```plaintext
-local_enable=YES write_enable=YES
+```properties
+local_enable=YES 
+write_enable=YES
 ```
 
 Next, give the guests their own room i.e. allow access to their home directories by adding the following lines in the same conf file
 
-```
+```properties
 chroot_local_user=YES 
 user_sub_token=$USER 
 local_root=/home/$USER/ftp 
@@ -51,13 +52,13 @@ userlist_enable=YES
 
 Make pam service as vsftpd to avoid a `530 login error` while accessing, by adding the following line to the sane conf file. This also needs a follow up edit in another file that we will come back to later.
 
-```
+```properties
 pam_service_name=vsftpd
 ```
 
 Next, to avoid a `500 OOPS: vsftpd: refusing to run with writable root inside chroot` error, add the following line too in the same conf file.
 
-```
+```properties
 allow_writeable_chroot=YES
 ```
 
@@ -67,7 +68,7 @@ In the end, enable `passv` mode which reminds me what it actually means but th
 
 ![](https://media.giphy.com/media/10JLfyir1DEesM/giphy.gif)
 
-```
+```properties
 pasv_enable=YES 
 pasv_min_port=10000 
 pasv_max_port=10010 
@@ -76,19 +77,19 @@ seccomp_sandbox=NO
 
 Save the conf file (`esc + :wq` on vi) and the restart the vsftpd service
 
-```
+```bash
 sudo systemctl restart vsftpd
 ```
 
 To revisit the “one more step” needed to avoid `530 login error`,
 
-```
-$ sudo vi /etc/pam.d/vsftpd
+```bash
+sudo vi /etc/pam.d/vsftpd
 ```
 
 and **comment** the following line
 
-```
+```properties
 auth required pam_shells.so
 ```
 
@@ -104,7 +105,7 @@ Create a dedicate group on your server for ftp users. This will make your life e
 
 ![](https://media.giphy.com/media/13aSSyJaI5NkTm/giphy.gif)
 
-```
+```bash
 groupadd ftpusers
 ```
 
