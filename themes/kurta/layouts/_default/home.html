@@ -2,4 +2,7 @@
   {{ site.Params.customIntro | safeHTML}}
   {{ .Content }}
   {{ site.Params.customContact | safeHTML}}
+  <hr class="rb-hr"/>
+  <h1 class="rb-home-posts-title">My Blog Posts</h1>
+  {{ partial "list_partial.html" (dict "Pages" (where site.RegularPages "Section" "posts")) }}
 {{ end }}

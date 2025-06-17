@@ -9,9 +9,45 @@ pageRef = 'posts'
 weight = 10
 
 [[menus.main]]
-name = 'Projects'
-pageRef = 'projects'
+name = 'Tech'
+pageRef = 'categories/tech'
+weight = 11
+parent = 'Posts'
+
+[[menus.main]]
+name = 'Design'
+pageRef = 'categories/design'
+weight = 12
+parent = 'Posts'
+
+[[menus.main]]
+name = 'Music'
+pageRef = 'categories/music'
+weight = 13
+parent = 'Posts'
+
+[[menus.main]]
+name = 'PostsII'
+pageRef = 'posts'
 weight = 20
+
+[[menus.main]]
+name = 'TechII'
+pageRef = 'categories/tech'
+weight = 21
+parent = 'PostsII'
+
+[[menus.main]]
+name = 'DesignII'
+pageRef = 'categories/design'
+weight = 22
+parent = 'PostsII'
+
+[[menus.main]]
+name = 'MusicII'
+pageRef = 'categories/music'
+weight = 23
+parent = 'PostsII'
 
 [module]
   [module.hugoVersion]

@@ -1,5 +1,7 @@
 body {
   color: #222;
+  /* background-color: #c9e7e9; */
+  /* background-color: #efece7; */
   background-color: #fff;
   line-height: 1.5;
   margin: auto !important;
@@ -21,6 +23,12 @@ header{
 .rb-header-logo a img{
   max-height: 64px;
 }
+
+hr.rb-hr{
+  margin: 1rem auto;
+  border: .05rem dashed #222;
+}
+
 
 footer {
   display: grid;
@@ -153,11 +161,47 @@ h1.rb-single-title{
   gap: 1rem;
 }
 
+.rb-nav ul li {
+  position: relative;
+  display: inline-block;
+}
+
+
 .rb-nav a {
   color: #222;
   text-decoration: none;
   padding: 0.5em .25rem;
   display: block;
+}
+
+ul.rb-sub-nav{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: .05rem dashed #222;
+}
+
+.rb-nav ul li:hover ul.rb-sub-nav {
+  display: block;
+}
+
+ul.rb-sub-nav li {
+  margin: 0;
+  width: 100%;
+  white-space: nowrap;
+}
+
+ul.rb-sub-nav li a{
+  padding: .5rem;
+}
+
+ul.rb-sub-nav li a:hover{
+  background-color: #ddd;
 }
 
 .rb-copy{
@@ -209,6 +253,7 @@ pre, .highlight {
 
 pre.chroma code[data-lang]{
   position: relative;
+  padding-top: 1rem;
   display: block;
 }
 
@@ -238,7 +283,7 @@ h2.rb-single-comments{
   border-top: .05rem dashed #222;
 }
 
-@media (max-width: 748px){
+@media (max-width: 768px){
   img {
     max-width: calc(100vw - 2rem);
   }
@@ -265,5 +310,12 @@ h2.rb-single-comments{
   }
   .rb-copy{
     font-size: .85rem;
+  }
+  ul.rb-sub-nav{
+    border: .05rem solid #ccc;
+    box-shadow: 0 0 .5rem 0 #fbfbfb;
+  }
+  ul.rb-sub-nav li a{
+    padding: 1rem;
   }
 }
