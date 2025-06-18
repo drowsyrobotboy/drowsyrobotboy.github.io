@@ -7,10 +7,6 @@ body{
     font-family: "Courier Prime", monospace;
 }
 
-.rb-nav a {
-    text-transform: uppercase;
-}
-
 h1{
     font-family: "Ovo", serif;
     font-size: 1.4rem;

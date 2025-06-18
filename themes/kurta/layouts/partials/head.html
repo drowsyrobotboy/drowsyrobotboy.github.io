@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<link id="rb-color-stylesheet" rel="stylesheet" href="/css/colors/{{ site.Params.defaultColorCss}}">
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -12,22 +13,44 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Ovo&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.typekit.net/crj3asf.css">
-<link id="rb-stylesheet" rel="stylesheet" href="/css/{{ site.Params.customCss}}">
+<link id="rb-font-stylesheet" rel="stylesheet" href="/css/fonts/{{ site.Params.defaultFontCss}}">
 <script>
-    const link = document.getElementById('rb-stylesheet');
+    const fontLink = document.getElementById('rb-font-stylesheet');
+    const colorLink = document.getElementById('rb-color-stylesheet');
 
     // Define your stylesheets in rotation order
-    const styles = ['/css/ovo.css', '/css/courier-prime.css', '/css/helvetica-neue.css'];
+    const fontStyles = ['/css/fonts/ovo.css', '/css/fonts/courier-prime.css', '/css/fonts/helvetica-neue.css'];
+    const colorStyles = ['/css/colors/light.css', '/css/colors/dark.css'];
 
-    // Get saved stylesheet or fallback to default for the site
-    let currentIndex = localStorage.getItem('themeIndex') || {{ site.Params.customCssIndex }};
-    currentIndex = parseInt(currentIndex);
-    link.href = styles[currentIndex];
+    // Get saved fontStylesheet or fallback to default for the site
+    let currentFontIndex = localStorage.getItem('fontIndex') || {{ site.Params.defaultFontCssIndex }};
+    currentFontIndex = parseInt(currentFontIndex);
+    fontLink.href = fontStyles[currentFontIndex];
 
-    function rotateCSS() {
+    // Similar for color
+    let currentColorIndex = localStorage.getItem('colorIndex') || {{ site.Params.defaultColorCssIndex }};
+    currentColorIndex = parseInt(currentColorIndex);
+    colorLink.href = colorStyles[currentColorIndex];
+
+    function rotateFontCSS() {
       // Move to next index (wrap around at end)
-      currentIndex = (currentIndex + 1) % styles.length;
-      link.href = styles[currentIndex];
-      localStorage.setItem('themeIndex', currentIndex);
+      currentFontIndex = (currentFontIndex + 1) % fontStyles.length;
+      fontLink.href = fontStyles[currentFontIndex];
+      localStorage.setItem('fontIndex', currentFontIndex);
+    }
+    function setFontCSS(passedFontIndex){
+      fontLink.href = fontStyles[passedFontIndex];
+      localStorage.setItem('fontIndex', passedFontIndex);
+    }
+
+    function rotateColorCSS() {
+      // Move to next index (wrap around at end)
+      currentColorIndex = (currentColorIndex + 1) % colorStyles.length;
+      colorLink.href = colorStyles[currentColorIndex];
+      localStorage.setItem('colorIndex', currentColorIndex);
+    }
+    function setColorCSS(passedColorIndex){
+      colorLink.href = colorStyles[passedColorIndex];
+      localStorage.setItem('colorIndex', passedColorIndex);
     }
 </script>

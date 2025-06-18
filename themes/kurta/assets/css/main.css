@@ -1,12 +1,19 @@
 body {
-  color: #222;
-  /* background-color: #c9e7e9; */
-  /* background-color: #efece7; */
-  background-color: #fff;
+  color: var(--rb-color);
+  background-color: var(--rb-bg-color);
   line-height: 1.5;
   margin: auto !important;
   padding: 1rem;
   max-width: 768px;
+}
+a{
+  color: var(--rb-link-color);
+}
+a:active, a:hover, a:focus{
+  color: var(--rb-link-hover-color);
+}
+a:visited{
+  color: var(--rb-link-visited-color);
 }
 img{
   max-width: 768px;
@@ -26,14 +33,14 @@ header{
 
 hr.rb-hr{
   margin: 1rem auto;
-  border: .05rem dashed #222;
+  border: .05rem dashed var(--rb-color);
 }
 
 
 footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: .05rem dashed #222;
+  border-top: .05rem dashed var(--rb-color);
   margin-top: 1rem;
   text-align: center;
 }
@@ -83,14 +90,14 @@ h3.rb-home-posts-year{
 .rb-home-posts .rb-post-category a{
   text-decoration: none;
   font-size: .8rem;
-  color: #666;
+  color: var(--rb-small-link-color);
   padding: .2rem .5rem;
-  border: .1rem solid #666;
+  border: .1rem solid var(--rb-border-color);
   border-radius: .5rem;
 }
 
 .rb-home-posts .rb-post-category a:hover{
-  color: #333;
+  color: var(--rb-small-link-hover-color);;
 }
 
 h1.rb-single-title{
@@ -115,41 +122,26 @@ h1.rb-single-title{
   text-decoration: none;
   text-transform: lowercase;
   font-size: .8rem;
-  color: #666;
+  color: var(--rb-small-link-color);
   padding: .2rem .5rem;
-  border: .1rem solid #666;
+  border: .1rem solid var(--rb-border-color);
   border-radius: .5rem;
 }
 
 .rb-single-tags a:hover{
-  color: #333;
+  color: var(--rb-small-link-hover-color);
 }
 
 .rb-header-menu{
   display: grid;
   grid-template-columns: auto 2rem;
-  border-top: .05rem dashed #222;
-  border-bottom: .05rem dashed #222;
+  border-top: .05rem dashed var(--rb-color);
+  border-bottom: .05rem dashed var(--rb-color);
 }
 
 .rb-header-menu-links{
   align-content: center;
   justify-content:first;
-}
-
-.rb-header-css-switch{
-  align-content: center;
-  justify-items: end;
-  text-align: end;
-}
-
-.rb-header-css-switch a{
-  color:#999;
-  text-decoration: none;
-}
-
-.rb-header-css-switch a:hover{
-  color:#333;
 }
 
 .rb-nav ul {
@@ -168,7 +160,7 @@ h1.rb-single-title{
 
 
 .rb-nav a {
-  color: #222;
+  color: var(--rb-color);
   text-decoration: none;
   padding: 0.5em .25rem;
   display: block;
@@ -182,8 +174,8 @@ ul.rb-sub-nav{
   list-style: none;
   margin: 0;
   padding: 0;
-  background: #fff;
-  border: .05rem dashed #222;
+  background: var(--rb-bg-color);
+  border: .05rem dashed var(--rb-border-color);;
 }
 
 .rb-nav ul li:hover ul.rb-sub-nav {
@@ -197,11 +189,16 @@ ul.rb-sub-nav li {
 }
 
 ul.rb-sub-nav li a{
+  color: var(--rb-color);
   padding: .5rem;
 }
 
 ul.rb-sub-nav li a:hover{
-  background-color: #ddd;
+  background-color: var(--rb-element-hover-color);
+}
+
+ul.rb-sub-nav li a:focus ul.rb-sub-nav{
+  display: none;
 }
 
 .rb-copy{
@@ -220,12 +217,12 @@ ul.rb-sub-nav li a:hover{
 
 /* Icons */
 .rb-social-icons a {
-  color: #999;
+  color: var(--rb-small-link-color);
   font-size: 1rem;
 }
 
 .rb-social-icons a:hover {
-  color:#333;
+  color:var(--rb-small-link-hover-color);
 }
 
 .rb-ms-header{
@@ -244,11 +241,11 @@ pre, .highlight {
 }
 
 .highlight{
-  background-color: #fafafa;
+  background-color: var(--rb-code-bg-color);
   padding: 0 1rem;
-  border: #eee .05rem solid;
+  border: var(--rb-shadow-border-color) .05rem solid;
   border-radius: .5rem;
-  box-shadow: inset 0 0 .1rem 0 #ededed;
+  box-shadow: inset 0 0 .1rem 0 var(--rb-shadow-color);
 }
 
 pre.chroma code[data-lang]{
@@ -262,25 +259,40 @@ pre.chroma code[data-lang]::after {
   position: absolute;
   top: 0;
   right: 0;
-  color: #999;
+  color: var(--rb-code-lang-color);
   font-size: 0.8em;
   text-transform: lowercase;
   pointer-events: none;
 }
 
 p code {
-  background-color: #fafafa;
+  background-color: var(--rb-code-bg-color);
   font-size: 0.9rem !important;
   padding: .2rem .4rem;
-  border: #eee .05rem solid;
+  border: var(--rb-shadow-border-color) .05rem solid;
   border-radius: .5rem;
-  box-shadow: inset 0 0 .1rem 0 #ededed;
+  box-shadow: inset 0 0 .1rem 0 var(--rb-shadow-color);
 }
 
 h2.rb-single-comments{
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: .05rem dashed #222;
+  border-top: .05rem dashed var(--rb-border-color);
+}
+
+/* 
+ * The following three classes are used by menu items in Fonts
+ */
+a.rb-serif{
+  font-family: "Ovo", serif;
+}
+
+a.rb-monospace{
+  font-family: "Courier Prime", monospace;
+}
+
+a.rb-sans-serif{
+  font-family: "helvetica-neue-lt-pro", sans-serif;
 }
 
 @media (max-width: 768px){
@@ -294,12 +306,12 @@ h2.rb-single-comments{
     gap: .5rem;
   }
   .rb-home-posts .rb-post-title{
-    border-top: .05rem solid #eee;
+    border-top: .05rem solid var(--rb-shadow-border-color);
     padding-top: 1rem;
     margin: 0 0 1rem 0;
   }
   .rb-home-posts .rb-post-date{
-    border-top: .05rem solid #eee;
+    border-top: .05rem solid var(--rb-shadow-border-color);
     padding-top: 1rem;
   }
   .rb-home-posts .rb-post-category a{
@@ -312,8 +324,8 @@ h2.rb-single-comments{
     font-size: .85rem;
   }
   ul.rb-sub-nav{
-    border: .05rem solid #ccc;
-    box-shadow: 0 0 .5rem 0 #fbfbfb;
+    border: .05rem solid var(--rb-shadow-border-color);;
+    box-shadow: 0 0 .5rem 0 var(--rb-shadow-color);
   }
   ul.rb-sub-nav li a{
     padding: 1rem;

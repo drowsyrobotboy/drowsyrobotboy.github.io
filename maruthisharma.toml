@@ -5,8 +5,10 @@ theme = 'kurta'
 
 [params]
     customHeader = "<a href=\"/\" style=\"text-decoration: none; color: #222;\"><h1 class=\"rb-ms-header\">Maruthi Sharma Panchagnula</h1></a>"
-    customCss = "ovo.css"
-    customCssIndex = 0
+    defaultFontCss = "ovo.css"
+    defaultFontCssIndex = 0
+    defaultColorCss = "light.css"
+    defaultColorCssIndex = 0
     customIntro = ""
     customContact = "You can reach out to me at <a href=\"mailto:msharma@securdi.com\">msharma@securdi.com</a>"
 

@@ -1,0 +1,17 @@
+:root {
+    --rb-color: #222;
+    --rb-link-color: #508bd3;
+    --rb-link-hover-color: #81b1ea;
+    --rb-link-visited-color: #5558a0;
+    --rb-small-link-color: #666;
+    --rb-small-link-hover-color: #333;
+    --rb-border-color: #666;
+    /*Used in menu hover*/
+    --rb-element-hover-color: #ddd;
+
+    --rb-shadow-color:#ededed;
+    --rb-shadow-border-color: #eee;
+    --rb-code-bg-color: #fafafa;  
+    --rb-code-lang-color: #999;  
+    --rb-bg-color: #fff;
+}

@@ -27,27 +27,61 @@ weight = 13
 parent = 'Posts'
 
 [[menus.main]]
-name = 'PostsII'
-pageRef = 'posts'
+name = 'Fonts'
+url = '#'
 weight = 20
+[menus.main.params]
+  onclick = 'rotateFontCSS()'
 
 [[menus.main]]
-name = 'TechII'
-pageRef = 'categories/tech'
+name = 'Ovo'
+url = '#'
 weight = 21
-parent = 'PostsII'
+parent = 'Fonts'
+[menus.main.params]
+  onclick = 'setFontCSS("0")'
+  fontClass = 'rb-serif'
 
 [[menus.main]]
-name = 'DesignII'
-pageRef = 'categories/design'
+name = 'Courier Prime'
+url = '#'
 weight = 22
-parent = 'PostsII'
+parent = 'Fonts'
+[menus.main.params]
+  onclick = 'setFontCSS("1")'
+  fontClass = 'rb-monospace'
 
 [[menus.main]]
-name = 'MusicII'
-pageRef = 'categories/music'
+name = 'Helvetica Neue'
+url = '#'
 weight = 23
-parent = 'PostsII'
+parent = 'Fonts'
+[menus.main.params]
+  onclick = 'setFontCSS("2")'
+  fontClass = 'rb-sans-serif'
+
+[[menus.main]]
+name = 'Colors'
+url = '#'
+weight = 30
+[menus.main.params]
+  onclick = 'rotateColorCSS()'
+
+[[menus.main]]
+name = 'Light'
+url = '#'
+weight = 31
+parent = 'Colors'
+[menus.main.params]
+  onclick = 'setColorCSS("0")'
+
+[[menus.main]]
+name = 'Dark'
+url = '#'
+weight = 32
+parent = 'Colors'
+[menus.main.params]
+  onclick = 'setColorCSS("1")'
 
 [module]
   [module.hugoVersion]
