@@ -1,7 +1,7 @@
 ---
 title: Sample Hugo Post
 date: 2025-06-07T12:00:00+05:30
-draft: false
+draft: true
 tags:
   - sample
   - hugo

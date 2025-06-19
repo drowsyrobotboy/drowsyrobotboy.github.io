@@ -26,19 +26,6 @@ header{
 svg.rb-logo-svg{
   max-height: 64px;
   fill: var(--rb-color);
-  margin-bottom: 1rem;
-}
-
-.cls-3 {
-  font-size: 4rem;
-}
-
-.cls-2 {
-  font-size: 8rem;
-}
-
-.cls-1 {
-  fill: var(--rb-link-visited-color);
 }
 
 hr.rb-hr{
