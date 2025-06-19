@@ -12,7 +12,7 @@ categories:
 
 This is a sample post created for your Hugo site. You can edit or delete it as you like
 
-# Heading 10
+# Heading 1
 ## Heading 2
 ### Heading 3
 #### Heading 4

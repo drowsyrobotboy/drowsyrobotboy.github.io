@@ -1,3 +1,6 @@
+/* Import Syntax CSS for monokai-dark */
+@import url('/css/syntax/monokai-dark.css');
+
 :root {
     --rb-color: #fff;
     --rb-link-color: #adef33;
@@ -9,9 +12,9 @@
     /*Used in menu hover*/
     --rb-element-hover-color: #333;
 
-    --rb-shadow-color:#ededed;
-    --rb-shadow-border-color: #eee;
-    --rb-code-bg-color: #fafafa;  
-    --rb-code-lang-color: #999;  
+    --rb-shadow-color:#1a1a1a;
+    --rb-shadow-border-color: #111;
+    --rb-code-bg-color: #272822;  
+    --rb-code-lang-color: #666;  
     --rb-bg-color: #222;
 }

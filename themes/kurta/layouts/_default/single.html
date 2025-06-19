@@ -22,8 +22,7 @@
         {{- end }}
     </div>
   {{- end }}
-    <h2 class="rb-single-comments">Comments
-    </h2>
+    <h2 class="rb-single-comments">Comments</h2>
   {{ $theme := "light" }}
   {{ if eq .Site.Params.defaultColorCssIndex 1 }}
     {{ $theme = "dark" }}
@@ -43,7 +42,8 @@
     script.setAttribute('data-input-position', 'top');
     script.setAttribute('data-theme', giscusTheme);
     script.setAttribute('data-lang', 'en');
-    script.setAttribute('data-loading', 'lazy');
+    // REMOVING LAZY LOADING as giscusTheme's old value is getting pulled
+    // script.setAttribute('data-loading', 'lazy');
     script.setAttribute('crossorigin', 'anonymous');
     script.async = true;
 

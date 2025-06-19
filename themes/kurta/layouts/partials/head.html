@@ -6,8 +6,6 @@
 {{ partialCached "head/js.html" . }}
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
-<!--including codeblocks css-->
-<link rel="stylesheet" href="{{ "css/syntax.css" | relURL }}">
 <!-- logic to rotate css -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +20,8 @@
     const fontStyles = ['/css/fonts/ovo.css', '/css/fonts/courier-prime.css', '/css/fonts/helvetica-neue.css'];
     const colorStyles = ['/css/colors/light.css', '/css/colors/dark.css'];
 
+    // Define 
+    let giscusTheme;
     // Get saved fontStylesheet or fallback to default for the site
     let currentFontIndex = localStorage.getItem('fontIndex') || {{ site.Params.defaultFontCssIndex }};
     currentFontIndex = parseInt(currentFontIndex);
@@ -31,7 +31,7 @@
     let currentColorIndex = localStorage.getItem('colorIndex') || {{ site.Params.defaultColorCssIndex }};
     currentColorIndex = parseInt(currentColorIndex);
     colorLink.href = colorStyles[currentColorIndex];
-    //Set Giscus Theme Variable based on color. this will be used in single.html's script tag while initializing
+    //Set Giscus Theme Variable based on color. this will be used in single.html's script tag while initializing. Also set syntaxCss
       if(currentColorIndex==1){
         giscusTheme = "noborder_dark";
       } else {
@@ -61,8 +61,10 @@
       //Set Giscus Theme based on color
       if(passedColorIndex=="1"){
         setGiscusTheme("noborder_dark");
+        giscusTheme = "noborder_dark"; // in case giscus is not loaded yet
       } else {
         setGiscusTheme("noborder_light");
+        giscusTheme = "noborder_light";
       }
     }
     // The following function will not work if the iframe doesn't load due to lazy-load

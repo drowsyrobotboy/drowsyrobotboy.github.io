@@ -1,3 +1,6 @@
+/* Import Syntax CSS for monokai-light */
+@import url('/css/syntax/monokai-light.css');
+
 :root {
     --rb-color: #222;
     --rb-link-color: #508bd3;
