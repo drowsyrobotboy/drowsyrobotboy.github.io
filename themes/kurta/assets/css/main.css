@@ -33,14 +33,14 @@ header{
 
 hr.rb-hr{
   margin: 1rem auto;
-  border: .05rem dashed var(--rb-color);
+  border: .05rem dashed var(--rb-border-color);
 }
 
 
 footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: .05rem dashed var(--rb-color);
+  border-top: .05rem dashed var(--rb-border-color);
   margin-top: 1rem;
   text-align: center;
 }
@@ -135,8 +135,8 @@ h1.rb-single-title{
 .rb-header-menu{
   display: grid;
   grid-template-columns: auto 2rem;
-  border-top: .05rem dashed var(--rb-color);
-  border-bottom: .05rem dashed var(--rb-color);
+  border-top: .05rem dashed var(--rb-border-color);
+  border-bottom: .05rem dashed var(--rb-border-color);
 }
 
 .rb-header-menu-links{

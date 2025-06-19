@@ -24,21 +24,30 @@
   {{- end }}
     <h2 class="rb-single-comments">Comments
     </h2>
-  <script src="https://giscus.app/client.js"
-    data-repo="drowsyrobotboy/drowsyrobotboy.github.io"
-    data-repo-id="R_kgDOO3_q8Q"
-    data-category="Blog Posts"
-    data-category-id="DIC_kwDOO3_q8c4CrcMB"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="light"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async>
+  {{ $theme := "light" }}
+  {{ if eq .Site.Params.defaultColorCssIndex 1 }}
+    {{ $theme = "dark" }}
+  {{ end }}
+  <div id="giscus-container"></div>
+  <script>
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', 'drowsyrobotboy/drowsyrobotboy.github.io');
+    script.setAttribute('data-repo-id', 'R_kgDOO3_q8Q');
+    script.setAttribute('data-category', 'Blog Posts');
+    script.setAttribute('data-category-id', 'DIC_kwDOO3_q8c4CrcMB');
+    script.setAttribute('data-mapping', 'pathname');
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'top');
+    script.setAttribute('data-theme', giscusTheme);
+    script.setAttribute('data-lang', 'en');
+    script.setAttribute('data-loading', 'lazy');
+    script.setAttribute('crossorigin', 'anonymous');
+    script.async = true;
+
+    document.getElementById('giscus-container').appendChild(script);
   </script>
 
 {{ end }}

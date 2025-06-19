@@ -31,6 +31,12 @@
     let currentColorIndex = localStorage.getItem('colorIndex') || {{ site.Params.defaultColorCssIndex }};
     currentColorIndex = parseInt(currentColorIndex);
     colorLink.href = colorStyles[currentColorIndex];
+    //Set Giscus Theme Variable based on color. this will be used in single.html's script tag while initializing
+      if(currentColorIndex==1){
+        giscusTheme = "noborder_dark";
+      } else {
+        giscusTheme = "noborder_light";
+      }
 
     function rotateFontCSS() {
       // Move to next index (wrap around at end)
@@ -52,5 +58,26 @@
     function setColorCSS(passedColorIndex){
       colorLink.href = colorStyles[passedColorIndex];
       localStorage.setItem('colorIndex', passedColorIndex);
+      //Set Giscus Theme based on color
+      if(passedColorIndex=="1"){
+        setGiscusTheme("noborder_dark");
+      } else {
+        setGiscusTheme("noborder_light");
+      }
+    }
+    // The following function will not work if the iframe doesn't load due to lazy-load
+    function setGiscusTheme(theme) {
+      const giscusFrame = document.querySelector('iframe.giscus-frame');
+      if (giscusFrame) {
+        giscusFrame.contentWindow.postMessage({
+            giscus: {
+              setConfig: {
+                theme: theme, // e.g., 'light', 'dark', 'preferred_color_scheme', 'transparent_dark', 'noborder_dark', 'noborder_light', etc.
+              },
+            },
+          },
+          'https://giscus.app'
+        );
+      }
     }
 </script>

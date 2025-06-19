@@ -1,13 +1,13 @@
 :root {
     --rb-color: #fff;
-    --rb-link-color: #508bd3;
-    --rb-link-hover-color: #81b1ea;
-    --rb-link-visited-color: #5558a0;
-    --rb-small-link-color: #666;
-    --rb-small-link-hover-color: #333;
-    --rb-border-color: #666;
+    --rb-link-color: #adef33;
+    --rb-link-hover-color: #d7ff8d;
+    --rb-link-visited-color: #7bbd00;
+    --rb-small-link-color: #999;
+    --rb-small-link-hover-color: #ccc;
+    --rb-border-color: #999;
     /*Used in menu hover*/
-    --rb-element-hover-color: #ddd;
+    --rb-element-hover-color: #333;
 
     --rb-shadow-color:#ededed;
     --rb-shadow-border-color: #eee;
