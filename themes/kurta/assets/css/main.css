@@ -20,15 +20,25 @@ img{
 }
 
 header{
-  margin: 1rem auto 2rem;
+  margin: 0 auto 2rem;
 }
 
-.rb-header-logo{
-  text-align: left;
-}
-
-.rb-header-logo a img{
+svg.rb-logo-svg{
   max-height: 64px;
+  fill: var(--rb-color);
+  margin-bottom: 1rem;
+}
+
+.cls-3 {
+  font-size: 4rem;
+}
+
+.cls-2 {
+  font-size: 8rem;
+}
+
+.cls-1 {
+  fill: var(--rb-link-visited-color);
 }
 
 hr.rb-hr{
@@ -226,7 +236,8 @@ ul.rb-sub-nav li a:focus ul.rb-sub-nav{
 }
 
 .rb-ms-header{
-  font-size: 2.2rem;
+  text-decoration: none;
+  color: var(--rb-color);
 }
 
 /* Added custom for overflow */
