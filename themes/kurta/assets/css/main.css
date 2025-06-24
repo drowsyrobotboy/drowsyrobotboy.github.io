@@ -278,6 +278,14 @@ h2.rb-single-comments{
   border-top: .05rem dashed var(--rb-border-color);
 }
 
+blockquote {
+  border-left: .5rem solid var(--rb-color);
+  color: var(--rb-color);
+  padding: 0 1rem;
+  font-style: italic;
+  margin-left: 1rem;
+}
+
 /* 
  * The following three classes are used by menu items in Fonts
  */
