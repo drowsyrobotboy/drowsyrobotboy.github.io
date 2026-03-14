@@ -1,7 +1,7 @@
 ---
 title: How I setup this blog
 date: 2025-06-24T13:00:00+05:30
-draft: false
+draft: true
 tags:
   - blog
   - hugo
