@@ -193,7 +193,7 @@ body[data-mode="dark"] .rb-portrait {
 .rb-poster-grid--solo .rb-hero-intro { max-width: none; }
 /* mobile: slightly larger name + tighter gap to the role line */
 @media (max-width: 640px) {
-  .rb-hero--poster h1.rb-hero-name { font-size: 1.25rem; margin-bottom: .5rem; }
+  .rb-hero--poster h1.rb-hero-name { font-size: 1.2rem; margin-bottom: .5rem; }
 }
 
 /* portrait on the left, content on the right */
