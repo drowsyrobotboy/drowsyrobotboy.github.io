@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="rb-page">
+  <main>
+    <h1 class="rb-home-posts-title">{{ .Title }}</h1>
+    {{ .Content }}
+    {{ partial "list_partial.html" . }}
+  </main>
+</div>
+{{ end }}

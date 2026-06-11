@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="rb-page">
+  <main>
+    <section class="rb-hero rb-hero--poster">
+      {{ with site.Params.logo }}
+      <img class="rb-hero-logo" src="{{ . | relURL }}" alt="{{ site.Title }} logo">
+      {{ end }}
+      <h1 class="rb-hero-name">{{ site.Title }}<span class="rb-dot">.</span></h1>
+      {{ with site.Params.heroRole }}
+      <p class="rb-hero-role">{{ . }}</p>
+      {{ end }}
+      <div class="rb-poster-grid">
+        <div class="rb-hero-intro">
+          {{ with site.Params.customIntro }}{{ . | safeHTML }}{{ end }}
+          {{ .Content }}
+          {{ with site.Params.customContact }}
+          <p class="rb-hero-contact">{{ . | safeHTML }}</p>
+          {{ end }}
+        </div>
+        {{ with site.Params.portrait }}
+        <img class="rb-portrait" src="{{ . | relURL }}" alt="Portrait of {{ site.Title }}">
+        {{ end }}
+      </div>
+      <button class="rb-scroll-cue" type="button"
+              onclick="document.getElementById('rb-posts').scrollIntoView({ behavior: 'smooth' });">
+        <span class="rb-arrow">&darr;</span><span>scroll for posts</span>
+      </button>
+    </section>
+
+    <div class="rb-posts-section" id="rb-posts">
+      <hr class="rb-hr"/>
+      <h1 class="rb-home-posts-title" style="margin-top: 2rem;">My Blog Posts</h1>
+      {{ partial "list_partial.html" (dict "Pages" (where site.RegularPages "Section" "posts")) }}
+    </div>
+  </main>
+</div>
+{{ end }}

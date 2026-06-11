@@ -1,32 +1,24 @@
 baseURL = 'https://maruthisharma.com'
 languageCode = 'en-us'
 title = 'Maruthi Sharma Panchagnula'
-theme = 'kurta'
+theme = 'naarinja'
 
 [params]
-    customHeader = """
-    <svg class="rb-logo-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2110.61 256" preserveAspectRatio="xMinYMin meet">
-      <defs>
-        <style>
-          .cls-1 {
-            font-size: 7.2rem;
-          }
+    # Short name shown in the internal-page header (falls back to title)
+    shortTitle = "Maruthi Sharma"
 
-          .cls-2 {
-            font-size: 4rem;
-          }
-        </style>
-      </defs>
-      <text class="cls-2" transform="translate(0 100)"><tspan x="0" y="0">drowsyrobotboy</tspan></text>
-      <text class="cls-1" transform="translate(0 220)"><tspan x="0" y="0">MARUTHI SHARMA PANCHAGNULA</tspan></text>
-    </svg>
-    """
-    defaultFontCss = "ovo.css"
-    defaultFontCssIndex = 0
-    defaultColorCss = "light.css"
-    defaultColorCssIndex = 0
-    defaultSyntaxCss = "monokai-light.css"
-    defaultSyntaxCssIndex = 0
+    # Brand assets (live in the site's static/images/)
+    logo = "/images/orange.png"
+    portrait = "/images/portrait.png"
+    heroRole = "Security Architect · Hyderabad, India"
+
+    # Color mode + palette (passed to the theme; light for now).
+    # Switch drowsyrobotboy.toml to mode = "dark" later without touching the theme.
+    mode = "light"
+    colorAccent = "#FF7D00"
+    colorBg = "#ffffff"
+    colorFg = "#222222"
+
     customIntro = ""
     customContact = "You can reach out to me at <a href=\"mailto:msharma@securdi.com\">msharma@securdi.com</a>"
 
@@ -40,7 +32,7 @@ theme = 'kurta'
 [markup]
   [markup.highlight]
     noClasses = false     # Use CSS classes instead of inline styles
-    style = "monokailight"      # GitHub-style syntax highlighting
+    style = "monokailight"      # base chroma classes; recolored to 3-color in main.css
     guessSyntax = true    # Detect language if nothing is specified
   [markup.goldmark.renderer]
     unsafe = true

@@ -1,0 +1,360 @@
+/* ============ Naarinja — Kurta redesign v3 ============ */
+/* Strict 3-color palette: orange (logo), white, black. Ovo only. */
+/* Palette tokens; can be overridden per-site via params (see head.html). */
+:root {
+  --rb-orange: #FF7D00;
+  --rb-black: #222222;
+  --rb-white: #ffffff;
+  --rb-nav-h: 53px;
+}
+body[data-mode="light"] {
+  --rb-bg: var(--rb-white);
+  --rb-fg: var(--rb-black);
+}
+body[data-mode="dark"] {
+  --rb-bg: var(--rb-black);
+  --rb-fg: var(--rb-white);
+}
+
+html, body { margin: 0; padding: 0; overflow-x: clip; }
+body {
+  font-family: "Ovo", serif;
+  background-color: var(--rb-bg);
+  color: var(--rb-fg);
+  line-height: 1.6;
+}
+
+.rb-page { max-width: 768px; margin: 0 auto; padding: 0 1rem; }
+
+a { color: var(--rb-orange); text-decoration: underline; text-underline-offset: 2px; }
+a:hover, a:focus { color: var(--rb-fg); }
+
+/* ---------- Top nav (non-landing pages) ---------- */
+.rb-navbar {
+  border-bottom: .09rem dashed var(--rb-orange);
+  background: var(--rb-bg);
+}
+.rb-navbar-inner {
+  max-width: 768px; margin: 0 auto; padding: 1rem 1rem .85rem;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.rb-header-id {
+  display: flex; flex-direction: column; align-items: flex-start; gap: .5rem;
+  text-decoration: none;
+}
+.rb-header-id img { display: block; height: 40px; width: auto; object-fit: contain; }
+.rb-header-id .rb-header-name {
+  color: var(--rb-fg);
+  font-size: .8rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.rb-header-id:hover .rb-header-name { color: var(--rb-orange); }
+/* header logo flush to the screen edge on mobile — cancel .rb-navbar-inner 1rem padding */
+@media (max-width: 640px) {
+  .rb-header-id img { margin-left: -1rem; }
+}
+.rb-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: row; gap: 1.25rem; }
+.rb-nav ul li { position: relative; display: inline-block; }
+.rb-nav a {
+  color: var(--rb-fg);
+  text-decoration: none;
+  padding: .55em .25rem;
+  display: block;
+  text-transform: uppercase;
+}
+.rb-nav a:hover { color: var(--rb-orange); }
+.rb-nav a.active, .rb-nav a.rb-active, .rb-nav a.ancestor { color: var(--rb-orange); }
+ul.rb-sub-nav {
+  display: none; position: absolute; top: 100%; right: 0; z-index: 10;
+  list-style: none; margin: 0; padding: 0;
+  background: var(--rb-bg);
+  border: .09rem dashed var(--rb-orange);
+}
+.rb-nav ul li:hover ul.rb-sub-nav { display: block; }
+ul.rb-sub-nav li { margin: 0; width: 100%; white-space: nowrap; }
+ul.rb-sub-nav li a { padding: .5rem .75rem; }
+ul.rb-sub-nav li a:hover { background: var(--rb-orange); color: var(--rb-white); }
+
+body[data-page="home"] { --rb-nav-h: 0px; }
+
+/* ============================================================
+   HERO — shared shell
+   ============================================================ */
+.rb-hero {
+  min-height: calc(100svh - var(--rb-nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 3.5rem;
+  box-sizing: border-box;
+}
+.rb-hero h1.rb-hero-name { text-transform: uppercase; letter-spacing: .1em; }
+.rb-scroll-cue {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .85rem;
+  color: var(--rb-orange);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.rb-scroll-cue:hover { color: var(--rb-fg); }
+.rb-scroll-cue .rb-arrow { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .rb-scroll-cue .rb-arrow { animation: rb-bob 1.8s ease-in-out infinite; }
+  @keyframes rb-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+}
+
+/* ---------- Portrait illustration ---------- */
+.rb-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+body[data-mode="dark"] .rb-portrait {
+  filter: invert(1) hue-rotate(195deg) saturate(1.15);
+  mix-blend-mode: screen;
+}
+
+/* ---------- POSTER — contained in the 768px page column ---------- */
+/* name + role span the full width; intro and portrait split 50/50 below */
+.rb-hero--poster h1.rb-hero-name,
+.rb-hero--poster .rb-hero-role,
+.rb-poster-grid { width: 100%; }
+.rb-poster-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.rb-hero--poster .rb-portrait {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  align-self: center;
+}
+@media (max-width: 640px) {
+  .rb-poster-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  /* portrait first, 80% of screen width, cropped to its top ~60%, faded out at the bottom */
+  .rb-hero--poster .rb-portrait {
+    order: -1;
+    width: 60vw;
+    justify-self: center;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1154 / 1536;
+    object-fit: cover;
+    object-position: top;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+}
+.rb-hero--poster .rb-hero-logo {
+  display: block; align-self: flex-start;
+  height: 48px; width: auto; object-fit: contain;
+  margin: 1rem 0 2rem;
+}
+/* logo flush to the screen edge on mobile — cancel the .rb-page 1rem padding.
+   Must come AFTER the base rule above, whose `margin` shorthand resets margin-left. */
+@media (max-width: 640px) {
+  .rb-hero--poster .rb-hero-logo { margin-left: -1rem; }
+}
+.rb-hero--poster h1.rb-hero-name {
+  font-size: clamp(1.1rem, 3.25vw, 2.1rem);
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+  font-weight: 400;
+  text-wrap: balance;
+}
+.rb-hero--poster h1.rb-hero-name .rb-dot { color: var(--rb-orange); }
+.rb-hero--poster .rb-hero-role {
+  font-size: .8rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--rb-orange); margin: 0 0 1.5rem;
+}
+.rb-hero--poster .rb-hero-intro { max-width: 56ch; }
+.rb-hero--poster .rb-hero-intro p { margin: 0 0 1rem; text-wrap: pretty; }
+/* mobile: slightly larger name + tighter gap to the role line */
+@media (max-width: 640px) {
+  .rb-hero--poster h1.rb-hero-name { font-size: 1.25rem; margin-bottom: .5rem; }
+}
+
+/* portrait on the left, content on the right */
+body[data-portrait-side="left"] .rb-poster-grid { grid-template-columns: minmax(0, 34%) minmax(0, 1fr); }
+body[data-portrait-side="left"] .rb-poster-grid > div:first-child { order: 2; }
+body[data-portrait-side="left"] .rb-hero--poster .rb-portrait { order: 1; }
+@media (max-width: 640px) {
+  body[data-portrait-side="left"] .rb-poster-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Posts section ---------- */
+main { display: block; }
+.rb-posts-section { padding-top: 2.5rem; }
+hr.rb-hr { margin: 0 auto; border: none; border-top: .09rem dashed var(--rb-orange); }
+
+h1, h2, h3 { font-weight: 400; }
+body[data-orange-headings="true"] h1,
+body[data-orange-headings="true"] h2 { color: var(--rb-orange); }
+
+h1.rb-home-posts-title { margin: 0 0 .5rem; font-size: 1.6rem; }
+h3.rb-home-posts-year {
+  margin: 1.25rem 0 .75rem;
+  font-size: 1.05rem;
+  color: var(--rb-orange);
+  letter-spacing: .12em;
+}
+.rb-home-posts { display: grid; grid-template-columns: 4rem auto; gap: 1rem; }
+.rb-home-posts .rb-post-date time { font-size: .9rem; }
+.rb-home-posts .rb-post-title { margin: 0 0 .6rem 0; }
+.rb-home-posts .rb-post-title a { text-decoration: none; margin-right: .4rem; color: var(--rb-fg); }
+.rb-home-posts .rb-post-title a:hover { color: var(--rb-orange); }
+.rb-post-category { display: inline; }
+.rb-post-category a, .rb-single-tags a {
+  text-decoration: none;
+  font-size: .78rem;
+  color: var(--rb-orange);
+  padding: .15rem .55rem;
+  border: .09rem solid var(--rb-orange);
+  border-radius: .6rem;
+  white-space: nowrap;
+}
+.rb-post-category a:hover, .rb-single-tags a:hover {
+  background: var(--rb-orange);
+  color: var(--rb-white);
+}
+
+/* ---------- Single post ---------- */
+.rb-single { padding-top: 2rem; }
+.rb-single img { max-width: 100%; height: auto; }
+h1.rb-single-title { margin: 0; font-size: 1.9rem; line-height: 1.25; }
+.rb-single-subtitle { font-size: .9rem; font-style: italic; margin: .35rem 0 1.5rem; }
+.rb-single-subtitle a { text-decoration: none; text-transform: uppercase; }
+.rb-single h2 { font-size: 1.3rem; margin: 2rem 0 .5rem; }
+.rb-single p { text-wrap: pretty; }
+.rb-single-tags { display: flex; gap: .5rem; margin-top: 2rem; flex-wrap: wrap; }
+
+blockquote {
+  border-left: .4rem solid var(--rb-orange);
+  padding: 0 1rem;
+  font-style: italic;
+  margin: 1.25rem 0 1.25rem 1rem;
+}
+
+/* ---------- Code (Hugo chroma output) ---------- */
+.highlight pre.chroma, .highlight pre.chroma code, p code {
+  font-family: "Ovo", serif;
+}
+body[data-code-font="monospace"] .highlight pre.chroma,
+body[data-code-font="monospace"] .highlight pre.chroma code,
+body[data-code-font="monospace"] p code {
+  font-family: "Courier Prime", monospace;
+}
+.highlight { margin: 1.25rem 0; }
+.highlight pre.chroma {
+  position: relative;
+  background: var(--rb-bg);
+  color: var(--rb-fg);
+  border: .09rem dashed var(--rb-orange);
+  border-radius: .5rem;
+  padding: 1.6rem 1rem 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: .92rem;
+  line-height: 1.55;
+  box-sizing: border-box;
+}
+pre.chroma code[data-lang]::after {
+  content: attr(data-lang);
+  position: absolute;
+  top: .35rem; right: .75rem;
+  color: var(--rb-orange);
+  font-size: .75rem;
+  text-transform: lowercase;
+  pointer-events: none;
+}
+/* Three-color highlighting: comments & strings in orange, the rest inherits fg */
+.highlight pre.chroma span { color: var(--rb-fg); background: none; }
+.highlight pre.chroma .c, .highlight pre.chroma .ch, .highlight pre.chroma .cm,
+.highlight pre.chroma .c1, .highlight pre.chroma .cs, .highlight pre.chroma .cp,
+.highlight pre.chroma .cpf {
+  color: var(--rb-orange); font-style: italic;
+}
+.highlight pre.chroma .s, .highlight pre.chroma .s1, .highlight pre.chroma .s2,
+.highlight pre.chroma .sb, .highlight pre.chroma .sc, .highlight pre.chroma .sd,
+.highlight pre.chroma .se, .highlight pre.chroma .sh, .highlight pre.chroma .si,
+.highlight pre.chroma .sx, .highlight pre.chroma .sr, .highlight pre.chroma .ss,
+.highlight pre.chroma .dl {
+  color: var(--rb-orange);
+}
+/* Fallback for unhighlighted fenced/indented code */
+pre:not(.chroma) {
+  background: var(--rb-bg);
+  color: var(--rb-fg);
+  border: .09rem dashed var(--rb-orange);
+  border-radius: .5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+p code {
+  border: .09rem solid var(--rb-orange);
+  border-radius: .4rem;
+  padding: .1rem .35rem;
+  font-size: .9rem;
+}
+
+/* ---------- Comments ---------- */
+h2.rb-single-comments {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: .09rem dashed var(--rb-orange);
+  font-size: 1.3rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  max-width: 768px;
+  margin: 2.5rem auto 0;
+  padding: 0 1rem 1.5rem;
+}
+.rb-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border-top: .09rem dashed var(--rb-orange);
+  padding-top: .75rem;
+}
+.rb-copy { font-size: .9rem; margin: 0; }
+.rb-copy p { margin: 0; }
+.rb-social-icons { display: flex; gap: 1rem; }
+.rb-social-icons a { color: var(--rb-fg); display: flex; }
+.rb-social-icons a:hover { color: var(--rb-orange); }
+
+@media (max-width: 560px) {
+  .rb-home-posts { gap: .5rem; }
+}
+@media (max-width: 480px) {
+  .rb-home-posts .rb-post-title {
+    border-top: .09rem dashed var(--rb-orange);
+    padding-top: .75rem;
+    margin: 0 0 1rem 0;
+  }
+  .rb-home-posts .rb-post-date {
+    border-top: .09rem dashed var(--rb-orange);
+    padding-top: .75rem;
+  }
+}

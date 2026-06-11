@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ovo&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/crj3asf.css">
+
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
+
+{{/* Palette is passed in from the site config (params) so each persona can
+     define its own colors / light or dark mode without touching the theme. */}}
+{{- $accent := site.Params.colorAccent | default "#FF7D00" }}
+{{- $mode := site.Params.mode | default "light" }}
+{{- $bg := site.Params.colorBg | default (cond (eq $mode "dark") "#222222" "#ffffff") }}
+{{- $fg := site.Params.colorFg | default (cond (eq $mode "dark") "#ffffff" "#222222") }}
+<style>
+  :root { --rb-orange: {{ $accent }}; }
+  body[data-mode="{{ $mode }}"] { --rb-bg: {{ $bg }}; --rb-fg: {{ $fg }}; }
+</style>
+
+<script>
+  // Giscus theme follows the site color mode (set in single.html on load).
+  const giscusTheme = {{ if eq $mode "dark" }}"noborder_dark"{{ else }}"noborder_light"{{ end }};
+</script>

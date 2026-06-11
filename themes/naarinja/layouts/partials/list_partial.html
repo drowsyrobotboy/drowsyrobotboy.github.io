@@ -1,0 +1,26 @@
+{{ $pages := .Pages.ByDate.Reverse }}
+    {{ $lastYear := "" }}
+    {{ range $pages }}
+      {{ $year := .Date.Format "2006" }}
+      {{ if ne $year $lastYear }}
+        <h3 class="rb-home-posts-year">{{ $year }}</h3>
+        {{ $lastYear = $year }}
+      {{ end }}
+      <div class="rb-home-posts">
+        <div class="rb-post-date">
+          {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+          {{ $dateHuman := .Date | time.Format "Jan 02" }}
+          <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        </div>
+        <div class="rb-post-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a> 
+          <div class="rb-post-category">
+            {{ with .Params.categories }}
+              {{ $firstCategory := index . 0 }}
+              <a href="{{ "categories/" | relLangURL }}{{ $firstCategory | urlize }}">{{ $firstCategory }}</a>
+            {{- /* using {{- end -}} instead of {{ end }} trims the whitespace */ -}}
+            {{- end -}}
+          </div>
+        </div>
+      </div> 
+  {{ end }}

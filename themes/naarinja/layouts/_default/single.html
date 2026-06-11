@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="rb-page rb-single">
+  <main>
+    <h1 class="rb-single-title">{{ .Title }}</h1>
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format "January 02 2006 at 15:04" }}
+    <div class="rb-single-subtitle">
+      Posted on <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>, under
+     {{ with .Params.categories }}
+        {{ $firstCategory := index . 0 }}
+        <a href="{{ "categories/" | relLangURL }}{{ $firstCategory | urlize }}">{{ $firstCategory }}</a>
+      {{- /* using {{- end -}} instead of {{ end }} trims the whitespace */ -}}
+      {{- end -}}
+    </div>
+
+    {{ $fixed := replaceRE "src=\"attachments/" "src=\"/posts/attachments/" .Content }}
+    {{ $fixed | safeHTML }}
+
+    {{- with .GetTerms "tags"}}
+      <div class="rb-single-tags">
+          {{- range . }}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{- end }}
+      </div>
+    {{- end }}
+
+    <h2 class="rb-single-comments">Comments</h2>
+    <div id="giscus-container"></div>
+    <script>
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', 'drowsyrobotboy/drowsyrobotboy.github.io');
+      script.setAttribute('data-repo-id', 'R_kgDOO3_q8Q');
+      script.setAttribute('data-category', 'Blog Posts');
+      script.setAttribute('data-category-id', 'DIC_kwDOO3_q8c4CrcMB');
+      script.setAttribute('data-mapping', 'pathname');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'top');
+      script.setAttribute('data-theme', giscusTheme);
+      script.setAttribute('data-lang', 'en');
+      script.setAttribute('crossorigin', 'anonymous');
+      script.async = true;
+
+      document.getElementById('giscus-container').appendChild(script);
+    </script>
+  </main>
+</div>
+{{ end }}

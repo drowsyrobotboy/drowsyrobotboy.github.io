@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body data-mode="{{ site.Params.mode | default "light" }}"
+      data-pairing="all-ovo"
+      data-code-font="ovo"
+      data-portrait-side="right"
+      data-orange-headings="false"
+      {{ if .IsHome }}data-page="home"{{ end }}>
+  {{ if not .IsHome }}
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  {{ end }}
+  {{ block "main" . }}{{ end }}
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+</body>
+</html>
