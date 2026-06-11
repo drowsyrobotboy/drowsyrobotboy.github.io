@@ -9,7 +9,7 @@ theme = 'naarinja'
 
     # Brand assets (live in the site's static/images/)
     logo = "/images/orange.png"
-    portrait = "/images/portrait.png"
+    portrait = "/images/portrait.jpg"
     heroRole = "Security Architect · Hyderabad, India"
 
     # Typeface: Ovo (default)
