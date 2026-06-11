@@ -18,8 +18,10 @@
 {{- $mode := site.Params.mode | default "light" }}
 {{- $bg := site.Params.colorBg | default (cond (eq $mode "dark") "#222222" "#ffffff") }}
 {{- $fg := site.Params.colorFg | default (cond (eq $mode "dark") "#ffffff" "#222222") }}
+{{- $font := site.Params.font | default "ovo" }}
+{{- $fontFamily := cond (eq $font "courier-prime") `"Courier Prime", monospace` `"Ovo", serif` }}
 <style>
-  :root { --rb-orange: {{ $accent }}; }
+  :root { --rb-orange: {{ $accent }}; --rb-font: {{ $fontFamily | safeCSS }}; }
   body[data-mode="{{ $mode }}"] { --rb-bg: {{ $bg }}; --rb-fg: {{ $fg }}; }
 </style>
 

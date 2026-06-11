@@ -12,6 +12,9 @@ theme = 'naarinja'
     portrait = "/images/portrait.png"
     heroRole = "Security Architect · Hyderabad, India"
 
+    # Typeface: Ovo (default)
+    font = "ovo"
+
     # Color mode + palette (passed to the theme; light for now).
     # Switch drowsyrobotboy.toml to mode = "dark" later without touching the theme.
     mode = "light"

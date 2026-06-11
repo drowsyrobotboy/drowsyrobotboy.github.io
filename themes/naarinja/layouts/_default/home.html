@@ -9,7 +9,7 @@
       {{ with site.Params.heroRole }}
       <p class="rb-hero-role">{{ . }}</p>
       {{ end }}
-      <div class="rb-poster-grid">
+      <div class="rb-poster-grid{{ if not site.Params.portrait }} rb-poster-grid--solo{{ end }}">
         <div class="rb-hero-intro">
           {{ with site.Params.customIntro }}{{ . | safeHTML }}{{ end }}
           {{ .Content }}
