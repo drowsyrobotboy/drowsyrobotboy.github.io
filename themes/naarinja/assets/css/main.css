@@ -193,7 +193,7 @@ body[data-mode="dark"] .rb-portrait {
 .rb-poster-grid--solo .rb-hero-intro { max-width: none; }
 /* mobile: slightly larger name + tighter gap to the role line */
 @media (max-width: 640px) {
-  .rb-hero--poster h1.rb-hero-name { font-size: 1.2rem; margin-bottom: .5rem; }
+  .rb-hero--poster h1.rb-hero-name { margin-bottom: .5rem; }
 }
 
 /* portrait on the left, content on the right */
@@ -207,7 +207,7 @@ body[data-portrait-side="left"] .rb-hero--poster .rb-portrait { order: 1; }
 /* ---------- Experience sections (home) ---------- */
 .rb-exp-intro {
   padding: 3.5rem 0 1rem;
-  border-top: .09rem dashed var(--rb-orange);
+  border-top: .09rem solid var(--rb-orange);
 }
 .rb-exp-intro-title {
   font-size: clamp(2rem, 6vw, 3.2rem);
@@ -220,16 +220,17 @@ body[data-portrait-side="left"] .rb-hero--poster .rb-portrait { order: 1; }
   font-size: 1.15rem;
   max-width: 54ch;
   margin: 1.5rem 0 0;
+  padding-bottom: 1rem;
   text-wrap: pretty;
 }
 /* the intro already draws the top divider; the first section shouldn't double it */
-.rb-exp-intro + .rb-exp-section { border-top: none; }
+
 .rb-exp-section {
   padding: 3rem 0;
-  border-top: .09rem dashed var(--rb-orange);
+  border-top: .09rem solid var(--rb-orange);
 }
 .rb-exp-label {
-  font-size: .8rem;
+  font-size: 1rem;
   letter-spacing: .26em;
   text-transform: uppercase;
   color: var(--rb-orange);
@@ -244,7 +245,6 @@ body[data-portrait-side="left"] .rb-hero--poster .rb-portrait { order: 1; }
 }
 .rb-exp-body {
   font-size: 1.1rem;
-  max-width: 56ch;
   margin: 0 0 2rem;
   text-wrap: pretty;
 }
@@ -256,14 +256,19 @@ body[data-portrait-side="left"] .rb-hero--poster .rb-portrait { order: 1; }
 }
 .rb-exp-point {
   max-width: 58ch;
-  border-left: .12rem solid var(--rb-orange);
-  padding-left: 1.1rem;
 }
 .rb-exp-point-title {
   font-size: 1.15rem;
   color: var(--rb-orange);
   margin: 0 0 .35rem;
-  text-wrap: balance;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.rb-exp-point-title::after {
+  content: "";
+  flex: 1;
+  border-top: .12rem solid var(--rb-orange);
 }
 .rb-exp-point-text { margin: 0; text-wrap: pretty; }
 .rb-exp-skills {
@@ -289,7 +294,7 @@ body[data-portrait-side="left"] .rb-hero--poster .rb-portrait { order: 1; }
 /* ---------- Closing contact (home) ---------- */
 .rb-contact {
   padding: 4rem 0 3rem;
-  border-top: .09rem dashed var(--rb-orange);
+  border-top: .09rem solid var(--rb-orange);
 }
 .rb-contact-title {
   font-size: clamp(1.7rem, 5vw, 2.6rem);

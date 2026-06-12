@@ -21,7 +21,7 @@
         <img class="rb-portrait" src="{{ . | relURL }}" alt="Portrait of {{ site.Title }}">
         {{ end }}
       </div>
-      {{ $hasExp := gt (len (site.Params.experience | default slice)) 0 }}
+      {{ $hasExp := gt (len (.Params.experience | default slice)) 0 }}
       {{ $scrollTarget := cond $hasExp "rb-experience" "rb-posts" }}
       {{ $scrollLabel := cond $hasExp "scroll" "scroll for posts" }}
       <button class="rb-scroll-cue" type="button"
@@ -30,12 +30,12 @@
       </button>
     </section>
 
-    {{ with site.Params.experience }}
+    {{ with .Params.experience }}
     <div class="rb-exp" id="rb-experience">
-      {{ if or site.Params.expTitle site.Params.expIntro }}
+      {{ if or $.Params.expTitle $.Params.expIntro }}
       <div class="rb-exp-intro">
-        {{ with site.Params.expTitle }}<h2 class="rb-exp-intro-title">{{ . }}</h2>{{ end }}
-        {{ with site.Params.expIntro }}<p class="rb-exp-intro-body">{{ . | safeHTML }}</p>{{ end }}
+        {{ with $.Params.expTitle }}<h2 class="rb-exp-intro-title">{{ . }}</h2>{{ end }}
+        {{ with $.Params.expIntro }}<p class="rb-exp-intro-body">{{ . | safeHTML }}</p>{{ end }}
       </div>
       {{ end }}
       {{ range $i, $e := . }}
@@ -65,10 +65,10 @@
     </div>
     {{ end }}
 
-    {{ if or site.Params.contactTitle site.Params.contactBody }}
+    {{ if or .Params.contactTitle .Params.contactBody }}
     <section class="rb-contact" id="rb-contact">
-      {{ with site.Params.contactTitle }}<h2 class="rb-contact-title">{{ . }}</h2>{{ end }}
-      {{ with site.Params.contactBody }}<p class="rb-contact-body">{{ . | safeHTML }}</p>{{ end }}
+      {{ with .Params.contactTitle }}<h2 class="rb-contact-title">{{ . }}</h2>{{ end }}
+      {{ with .Params.contactBody }}<p class="rb-contact-body">{{ . | safeHTML }}</p>{{ end }}
     </section>
     {{ end }}
 
