@@ -23,7 +23,62 @@ theme = 'naarinja'
     colorFg = "#222222"
 
     customIntro = ""
-    customContact = "You can reach out to me at <a href=\"mailto:msharma@securdi.com\">msharma@securdi.com</a>"
+    customContact = "You can reach out to me at <a href=\"mailto:maruthisharma@live.in\">maruthisharma@live.in</a>"
+
+# Full-height "experience" sections rendered on the homepage between the hero
+# and the blog posts. Remove or comment out to hide them on this persona.
+    expTitle = "I can help you with…"
+    expIntro = "I work with both sides of my brain — the analytical engineer and the creative maker — and I bring both to everything I do."
+
+    # Closing call-to-action below the experience sections on the homepage.
+    contactTitle = "Let's build something together."
+    contactBody = "Whether it's an identity programme, the infrastructure to run it, or something you simply want made well — I'd love to hear about it and help you out with it. Just reach out to me at <a href=\"mailto:maruthisharma@live.in\">maruthisharma@live.in</a>."
+
+[[params.experience]]
+    label = "Building & Creating"
+    heading = "Where engineering meets craft."
+    body = "This is the work that gives me the most satisfaction. I build things end to end — full-stack web applications from front-end to back-end, the graphic design and branding around them, and original music. It's all the same instinct: a deep love for making things from scratch, whether the medium is code, pixels, or sound."
+    skills = ["Full-Stack Development", "Front-End & Back-End", "Web Design", "Graphic Design", "Music Production", "Self-Hosting"]
+
+[[params.experience]]
+    label = "Identity Security"
+    heading = "Identity, designed as the backbone of security."
+    body = "If building is what I love most, identity security is my bread and butter — and the most important thing I do for the enterprises I work with. Twelve years architecting Access Management and Identity Governance across retail, finance, insurance, and aviation — federation and single sign-on, lifecycle automation, access certifications, and large-scale directory migrations."
+    skills = ["Identity Security Strategy & Architecture", "Sing Sign-On", "Multi Factor Autrhentication", "Customer Identity & Access Management", "Workforce Access Management", "Identity Lifecycle Management", "Identity Governance"]
+
+[[params.experience]]
+    label = "DevOps, Infrastructure & Automation"
+    heading = "Building and running the infrastructure behind it."
+    body = "I administer Linux systems and stand up the application infrastructure that workloads run on — from bare servers to Kubernetes — with repeatable CI/CD pipelines, infrastructure as code, and automation that removes the toil. And once it's live, I make it observable, with monitoring and dashboards that surface problems before your users do."
+    skills = ["Kubernetes", "Docker / Helm", "GitLab / Azure DevOps", "AWS / Azure / GCP", "Linux", "Observability & Monitoring", "Elastic / SumoLogic", "Go / Java / Python"]
+
+[[params.experience]]
+    label = "People & Leadership"
+    heading = "Building teams that build their best."
+    body = "As a team lead and mentor, I run client workshops, steer timelines alongside the PMO, and grow engineers — keeping morale high and delivery quality higher. A Certified ScrumMaster invested in the people behind the work."
+    skills = ["Team Leadership", "Mentoring & Coaching", "Client Workshops", "Agile / Scrum", "Stakeholder Management"]
+
+[[params.experience]]
+    label = "How I Use AI"
+    heading = "I work with AI, not around it."
+    body = "AI is woven through everything above — here's the thinking that guides how I use it."
+    skills = []
+
+    [[params.experience.points]]
+        title = "An enabler, not a replacement"
+        text = "Put to the right use and in the right hands, AI makes things better, not worse. I treat it as a tool that amplifies my work — never one that does the thinking for me."
+
+    [[params.experience.points]]
+        title = "A cure for my perfectionism"
+        text = "I am a bit of a perfectionist, and AI helps me get past the intricate details and actually ship — a genuine force multiplier across the craft, the code, and the infrastructure."
+
+    [[params.experience.points]]
+        title = "Used with respect"
+        text = "I value privacy, and I never lean on AI to lift other people's art or music. I use it only to sharpen and extend work that is already my own."
+
+    [[params.experience.points]]
+        title = "Always a human in the loop"
+        text = "The portrait at the top of this page says it best: AI generated it, but it took my own hand to shape the idea beforehand and refine the result afterwards."
 
 [params.meta]
     favicon = true

@@ -21,17 +21,62 @@
         <img class="rb-portrait" src="{{ . | relURL }}" alt="Portrait of {{ site.Title }}">
         {{ end }}
       </div>
+      {{ $hasExp := gt (len (site.Params.experience | default slice)) 0 }}
+      {{ $scrollTarget := cond $hasExp "rb-experience" "rb-posts" }}
+      {{ $scrollLabel := cond $hasExp "scroll" "scroll for posts" }}
       <button class="rb-scroll-cue" type="button"
-              onclick="document.getElementById('rb-posts').scrollIntoView({ behavior: 'smooth' });">
-        <span class="rb-arrow">&darr;</span><span>scroll for posts</span>
+              onclick="document.getElementById('{{ $scrollTarget }}').scrollIntoView({ behavior: 'smooth' });">
+        <span class="rb-arrow">&darr;</span><span>{{ $scrollLabel }}</span>
       </button>
     </section>
 
-    <div class="rb-posts-section" id="rb-posts">
+    {{ with site.Params.experience }}
+    <div class="rb-exp" id="rb-experience">
+      {{ if or site.Params.expTitle site.Params.expIntro }}
+      <div class="rb-exp-intro">
+        {{ with site.Params.expTitle }}<h2 class="rb-exp-intro-title">{{ . }}</h2>{{ end }}
+        {{ with site.Params.expIntro }}<p class="rb-exp-intro-body">{{ . | safeHTML }}</p>{{ end }}
+      </div>
+      {{ end }}
+      {{ range $i, $e := . }}
+      <section class="rb-exp-section">
+        <div class="rb-exp-inner">
+          <p class="rb-exp-label">{{ $e.label }}</p>
+          {{ with $e.heading }}<h2 class="rb-exp-heading">{{ . }}</h2>{{ end }}
+          {{ with $e.body }}<p class="rb-exp-body">{{ . | safeHTML }}</p>{{ end }}
+          {{ with $e.points }}
+          <div class="rb-exp-points">
+            {{ range . }}
+            <div class="rb-exp-point">
+              {{ with .title }}<h3 class="rb-exp-point-title">{{ . }}</h3>{{ end }}
+              {{ with .text }}<p class="rb-exp-point-text">{{ . | safeHTML }}</p>{{ end }}
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ with $e.skills }}
+          <ul class="rb-exp-skills">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </section>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if or site.Params.contactTitle site.Params.contactBody }}
+    <section class="rb-contact" id="rb-contact">
+      {{ with site.Params.contactTitle }}<h2 class="rb-contact-title">{{ . }}</h2>{{ end }}
+      {{ with site.Params.contactBody }}<p class="rb-contact-body">{{ . | safeHTML }}</p>{{ end }}
+    </section>
+    {{ end }}
+
+    <!-- <div class="rb-posts-section" id="rb-posts">
       <hr class="rb-hr"/>
       <h1 class="rb-home-posts-title" style="margin-top: 2rem;">My Blog Posts</h1>
       {{ partial "list_partial.html" (dict "Pages" (where site.RegularPages "Section" "posts")) }}
-    </div>
+    </div> -->
   </main>
 </div>
 {{ end }}
